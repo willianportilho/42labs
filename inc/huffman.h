@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 01:49:34 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/11 03:07:45 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 # include <stdlib.h>	// exit
 #include <fcntl.h>		// open
 
-# define BUFFER_SIZE 10
+# define BUFFER_SIZE 1024
 # define TRUE 1
 # define FALSE 0
 
 /*Tabela de frequencia (caracteres)*/
 typedef struct s_freq_tab
 {
-	int				ascii_table[256];
+	unsigned int	ascii_table[256];
 	unsigned char	*str_file;
 }					t_freq_tab;
 

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 01:50:56 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/11 12:32:44 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ unsigned char *read_file(int fd)
 {
 	unsigned char	*str_file;
 	unsigned char	*buffer;
-	int		bytes_read;
+	int				bytes_read;
 
 	bytes_read = TRUE;
 	str_file = NULL;
@@ -44,17 +44,20 @@ void	get_file(int argc, char *argv[], t_huff *huff)
 	int	fd;
 
 	i = 1;
+	huff->freq_tab.str_file = NULL;
 	while (i < argc)
 	{
 	fd = open(argv[i++], O_RDONLY);
 	if (fd == -1)
 	{
 		dprintf(2, "file error\n");
+		free (huff->freq_tab.str_file);
 		exit (EXIT_FAILURE);
 	}
 	huff->freq_tab.str_file = read_file(fd);
 	}
-	//printf("%s", huff->freq_tab.str_file); //printa na tela
+	//printf("%s\n", huff->freq_tab.str_file); //printa na tela
+	//printf("%d\n", (int)255);
 }
 
 /*
@@ -63,14 +66,20 @@ void	get_file(int argc, char *argv[], t_huff *huff)
 	correspondente a um index for encontrada, o index correspondente será
 	incrementado, gerando assim os dados de frequencia de cada símbolo. 
 */
-void	frequence_table(int argc, char *argv[], t_huff *huff)
+void	frequence_table(t_huff *huff)
 {
-	int		i;
+	int				i;
 
 	i = -1;
 	while (++i < 256)
 		huff->freq_tab.ascii_table[i] = 0;
-	get_file(argc, argv, huff);
+	i = -1;
+	while (huff->freq_tab.str_file[++i])
+		huff->freq_tab.ascii_table[huff->freq_tab.str_file[i]]++;
+	i = -1;
+	//while (++i < 256)
+	//	printf("%d %d %c\n", i, huff->freq_tab.ascii_table[i], i);
+	//free (huff->freq_tab.str_file);
 }
 
 int	main(int argc, char *argv[])
@@ -78,7 +87,11 @@ int	main(int argc, char *argv[])
 	t_huff	huff;
 
 	if (argc == 1)
+	{
 		dprintf(2, "encoder: error: needed more than one argument\n");
-	frequence_table(argc, argv, &huff);
+		exit (EXIT_FAILURE);
+	}
+	get_file(argc, argv, &huff);
+	frequence_table(&huff);
 	return (0);
 }
