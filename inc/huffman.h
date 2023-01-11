@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 01:07:17 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/11 01:49:34 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@
 /*Tabela de frequencia (caracteres)*/
 typedef struct s_freq_tab
 {
-	int			ascii_table[256];
-	char		*str_file;
-}				t_freq_tab;
+	int				ascii_table[256];
+	unsigned char	*str_file;
+}					t_freq_tab;
 
 /*Estrutura principal*/
 typedef struct s_huff
 {
-	t_freq_tab	freq_tab;
-}				t_huff;
+	t_freq_tab		freq_tab;
+}					t_huff;
 
 
 /*Util functions*/
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin_free_s1(char **s1, char *s2);
+size_t	ft_strlen(char *s);
+unsigned char	*ft_strjoin_free_s1(unsigned char **s1, unsigned char *s2);
 
 #endif

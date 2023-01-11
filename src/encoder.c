@@ -6,16 +6,16 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 01:42:00 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/11 01:50:56 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
 
-char *read_file(int fd)
+unsigned char *read_file(int fd)
 {
-	char	*str_file;
-	char	*buffer;
+	unsigned char	*str_file;
+	unsigned char	*buffer;
 	int		bytes_read;
 
 	bytes_read = TRUE;

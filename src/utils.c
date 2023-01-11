@@ -6,23 +6,23 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 00:18:28 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 01:34:43 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/11 01:50:25 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
 
-char	*ft_strjoin_free_s1(char **s1, char *s2)
+unsigned char	*ft_strjoin_free_s1(unsigned char **s1, unsigned char *s2)
 {
-	int		i;
-	int		j;
-	char	*new_str;
+	int				i;
+	int				j;
+	unsigned char	*new_str;
 
 	i = 0;
 	j = 0;
 	if (*s1 != NULL)
-		i = ft_strlen(*s1);
-	new_str = (char *)malloc((i + ft_strlen(s2) + 1) * sizeof(char));
+		i = ft_strlen((char *)*s1);
+	new_str = malloc((i + ft_strlen((char *)s2) + 1) * sizeof(unsigned char));
 	if (!new_str)
 		return (NULL);
 	i = 0;
@@ -41,7 +41,7 @@ char	*ft_strjoin_free_s1(char **s1, char *s2)
 	return (new_str);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *s)
 {
 	size_t	i;
 
