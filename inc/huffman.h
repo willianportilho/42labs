@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 03:07:45 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:15:24 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 # include <unistd.h>	// read
 # include <stdio.h>		// dprintf
 # include <stdlib.h>	// exit
-#include <fcntl.h>		// open
+# include <fcntl.h>		// open
+//# include <locale.h>
 
 # define BUFFER_SIZE 1024
+# define SIZE_ASCII 256
 # define TRUE 1
 # define FALSE 0
 

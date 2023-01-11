@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 12:32:44 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:15:53 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	get_file(int argc, char *argv[], t_huff *huff)
 	huff->freq_tab.str_file = read_file(fd);
 	}
 	//printf("%s\n", huff->freq_tab.str_file); //printa na tela
-	//printf("%d\n", (int)255);
 }
 
 /*
@@ -71,14 +70,20 @@ void	frequence_table(t_huff *huff)
 	int				i;
 
 	i = -1;
-	while (++i < 256)
+	while (++i < SIZE_ASCII)
 		huff->freq_tab.ascii_table[i] = 0;
 	i = -1;
 	while (huff->freq_tab.str_file[++i])
-		huff->freq_tab.ascii_table[huff->freq_tab.str_file[i]]++;
+	{
+		//if (huff->freq_tab.str_file[i] < SIZE_ASCII)
+			huff->freq_tab.ascii_table[huff->freq_tab.str_file[i]]++;
+	}
 	i = -1;
-	//while (++i < 256)
-	//	printf("%d %d %c\n", i, huff->freq_tab.ascii_table[i], i);
+	/*while (++i < SIZE_ASCII)
+	{
+		if (huff->freq_tab.ascii_table[i] > 0)
+			printf("%d %d\n", i, huff->freq_tab.ascii_table[i]);
+	}*/
 	//free (huff->freq_tab.str_file);
 }
 
@@ -91,6 +96,7 @@ int	main(int argc, char *argv[])
 		dprintf(2, "encoder: error: needed more than one argument\n");
 		exit (EXIT_FAILURE);
 	}
+	//setlocale(LC_ALL, "Portuguese");
 	get_file(argc, argv, &huff);
 	frequence_table(&huff);
 	return (0);
