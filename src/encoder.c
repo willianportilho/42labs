@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 01:30:11 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/11 01:42:00 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,21 @@ char *read_file(int fd)
 
 void	get_file(int argc, char *argv[], t_huff *huff)
 {
+	int i;
 	int	fd;
-	if (argc > 0)
+
+	i = 1;
+	while (i < argc)
 	{
-		;
-	}
-	fd = open(argv[1], O_RDONLY);
+	fd = open(argv[i++], O_RDONLY);
 	if (fd == -1)
 	{
 		dprintf(2, "file error\n");
 		exit (EXIT_FAILURE);
 	}
 	huff->freq_tab.str_file = read_file(fd);
-	printf("%s", huff->freq_tab.str_file);
+	}
+	//printf("%s", huff->freq_tab.str_file); //printa na tela
 }
 
 /*
@@ -77,10 +79,6 @@ int	main(int argc, char *argv[])
 
 	if (argc == 1)
 		dprintf(2, "encoder: error: needed more than one argument\n");
-	if (argv)
-	{
-		;
-	}
 	frequence_table(argc, argv, &huff);
 	return (0);
 }
