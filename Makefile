@@ -6,13 +6,15 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 11:25:18 by wportilh          #+#    #+#              #
-#    Updated: 2023/01/10 11:50:11 by wportilh         ###   ########.fr        #
+#    Updated: 2023/01/10 23:41:26 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES =		main.c
+SOURCES_ENC	=	encoder.c
+SOURCES_DEC	=	decoder.c
 
-NAME =			huffman
+NAME_ENC =		encoder
+NAME_DEC =		decoder
 
 CC =			cc
 CFLAGS =		-g3 -Wall -Wextra -Werror
@@ -29,28 +31,39 @@ OBJ_PATH =		obj/
 
 SRCS =			src/
 
-OBJS =			${addprefix ${OBJ_PATH}, ${SOURCES:.c=.o}}
+OBJS_ENC =			${addprefix ${OBJ_PATH}, ${SOURCES_ENC:.c=.o}}
+OBJS_DEC =			${addprefix ${OBJ_PATH}, ${SOURCES_DEC:.c=.o}}
 
 CYAN =			\033[36m
 RESET =			\033[0m
 
-all:			${NAME}
+all:			${NAME_ENC} ${NAME_DEC}
 
-${NAME}:		${OBJS}
+${NAME_ENC}:	${OBJS_ENC}
 				@echo "${CYAN}--------------------------"
-				@echo " objs ok!     "
+				@echo " objs encoder ok!     "
 				@echo "--------------------------"
-				@${CC} ${OBJS} -o ${NAME}
+				@${CC} ${OBJS_ENC} -o ${NAME_ENC}
 				@echo "--------------------------"
-				@echo " program created!"
+				@echo " encoder program created!"
+				@echo "--------------------------${RESET}"
+
+${NAME_DEC}:	${OBJS_DEC}
+				@echo "${CYAN}--------------------------"
+				@echo " objs decoder ok!     "
+				@echo "--------------------------"
+				@${CC} ${OBJS_DEC} -o ${NAME_DEC}
+				@echo "--------------------------"
+				@echo " decoder program created!"
 				@echo "--------------------------${RESET}"
 
 ${OBJ_PATH}%.o:	${SRC_PATH}%.c
 				@mkdir -p obj
 				@${CC} ${CFLAGS} -c $< -o $@
 
-val:			${NAME}
-				${VAL} ./huffman
+run:			${NAME_ENC} ${NAME_DEC}
+				@./encoder
+				@./decoder
 
 clean:		
 				@${RM_ALL} ${OBJ_PATH}
@@ -59,7 +72,7 @@ clean:
 				@echo "--------------------------${RESET}"
 
 fclean:			clean
-				@${RM} ${NAME}
+				@${RM} ${NAME_ENC} ${NAME_DEC} 
 				@echo "${CYAN}--------------------------"
 				@echo " fclean completed!"
 				@echo "--------------------------${RESET}"
@@ -70,6 +83,6 @@ re:				fclean all
 				@echo "--------------------------${RESET}"
 
 norm:
-				norminette ${SRCS}
+				norminette ${SRCS} ${INC}
 
-.PHONY:			all clean fclean re norm val
+.PHONY:			all clean fclean re norm run

@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   decoder.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/10 11:41:54 by wportilh         ###   ########.fr       */
+/*   Created: 2023/01/10 15:43:40 by wportilh          #+#    #+#             */
+/*   Updated: 2023/01/10 23:44:07 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/huffman.h"
+#include "../inc/huffman.h"
 
-int main(void)
+int	main(void)
 {
-    printf("teste\n");
+	printf("decoder\n");
+	return (0);
 }
