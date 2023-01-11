@@ -6,11 +6,11 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 11:25:18 by wportilh          #+#    #+#              #
-#    Updated: 2023/01/10 23:41:26 by wportilh         ###   ########.fr        #
+#    Updated: 2023/01/11 00:21:47 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES_ENC	=	encoder.c
+SOURCES_ENC	=	encoder.c utils.c
 SOURCES_DEC	=	decoder.c
 
 NAME_ENC =		encoder
