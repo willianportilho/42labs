@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 15:15:53 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:20:40 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	get_file(int argc, char *argv[], t_huff *huff)
 	correspondente a um index for encontrada, o index correspondente será
 	incrementado, gerando assim os dados de frequencia de cada símbolo. 
 */
-void	frequence_table(t_huff *huff)
+void	generate_frequence_table(t_huff *huff)
 {
 	int				i;
 
@@ -78,13 +78,12 @@ void	frequence_table(t_huff *huff)
 		//if (huff->freq_tab.str_file[i] < SIZE_ASCII)
 			huff->freq_tab.ascii_table[huff->freq_tab.str_file[i]]++;
 	}
-	i = -1;
-	/*while (++i < SIZE_ASCII)
+	/*i = -1;
+	while (++i < SIZE_ASCII)
 	{
 		if (huff->freq_tab.ascii_table[i] > 0)
-			printf("%d %d\n", i, huff->freq_tab.ascii_table[i]);
+			printf("%d %d\n", i, huff->freq_tab.ascii_table[i]); //print tests
 	}*/
-	//free (huff->freq_tab.str_file);
 }
 
 int	main(int argc, char *argv[])
@@ -98,6 +97,7 @@ int	main(int argc, char *argv[])
 	}
 	//setlocale(LC_ALL, "Portuguese");
 	get_file(argc, argv, &huff);
-	frequence_table(&huff);
+	generate_frequence_table(&huff);
+	generate_sorted_list(&huff);
 	return (0);
 }
