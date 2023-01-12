@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 17:20:40 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/11 20:17:16 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,6 @@ int	main(int argc, char *argv[])
 	get_file(argc, argv, &huff);
 	generate_frequence_table(&huff);
 	generate_sorted_list(&huff);
+	generate_huffman_tree(&huff);
 	return (0);
 }

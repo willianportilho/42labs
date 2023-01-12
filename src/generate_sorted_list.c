@@ -6,13 +6,13 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:10:16 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 18:24:29 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/12 12:20:58 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
 
-static void	start_list(t_huff *huff)
+static void	init_list(t_huff *huff)
 {
 	huff->list.root = NULL;
 	huff->list.size_list = 0;
@@ -33,7 +33,7 @@ static void	fill_table(int i, t_node **node, t_huff *huff)
 	(*node)->next = NULL;	
 }
 
-static void	sort_list(t_node *node, t_huff *huff)
+void	sort_list(t_node *node, t_huff *huff)
 {
 	t_node	*aux;
 
@@ -61,7 +61,7 @@ void	generate_sorted_list(t_huff *huff)
 	t_node	*node;
 
 	i = -1;
-	start_list(huff);
+	init_list(huff);
 	while (++i < SIZE_ASCII)
 	{
 		if (huff->freq_tab.ascii_table[i] > 0)
@@ -70,10 +70,10 @@ void	generate_sorted_list(t_huff *huff)
 			sort_list(node, huff);
 		}
 	}
-	/*t_node	*aux = huff->list.root;
+	t_node	*aux = huff->list.root;
 	while (aux)
 	{
 		printf("character: %c / frequence: %d\n", aux->character, aux->frenquence); // print tests
 		aux = aux->next;
-	}*/
+	}
 }
