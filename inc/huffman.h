@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/12 12:15:20 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/12 20:10:15 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@
 # include <stdio.h>		// dprintf
 # include <stdlib.h>	// exit - malloc
 # include <fcntl.h>		// open
+# include <string.h>	// strcat strcpy
 //# include <locale.h>
 
 # define BUFFER_SIZE 1024 // used in the read function
-# define SIZE_ASCII 256
+# define ASCII_SIZE 256
 # define TRUE 1
 # define FALSE 0
 
@@ -49,9 +50,16 @@ typedef struct s_freq_tab
 	unsigned char	*str_file;
 }					t_freq_tab;
 
+typedef struct s_dictionary
+{
+	int		lenght_col;
+	char	**dictionary;
+}					t_dictionary;
+
 /*Estrutura principal*/
 typedef struct s_huff
 {
+	t_dictionary	dic;
 	t_freq_tab		freq_tab;
 	t_list			list;
 }					t_huff;
@@ -62,6 +70,9 @@ void			generate_sorted_list(t_huff *huff);
 
 /*generate_huffman_tree.c*/
 void			generate_huffman_tree(t_huff *huff);
+
+/*generate_dictionary.c*/
+void    		generate_dictionary(t_huff *huff);
 
 /*Util functions (utils.c)*/
 size_t			ft_strlen(char *s);

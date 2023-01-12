@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:10:16 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/12 12:20:58 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/12 20:14:01 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	generate_sorted_list(t_huff *huff)
 
 	i = -1;
 	init_list(huff);
-	while (++i < SIZE_ASCII)
+	while (++i < ASCII_SIZE)
 	{
 		if (huff->freq_tab.ascii_table[i] > 0)
 		{
@@ -71,6 +71,7 @@ void	generate_sorted_list(t_huff *huff)
 		}
 	}
 	t_node	*aux = huff->list.root;
+	printf("Tabela de frequencia\n");
 	while (aux)
 	{
 		printf("character: %c / frequence: %d\n", aux->character, aux->frenquence); // print tests

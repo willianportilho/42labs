@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 20:17:16 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:38:54 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,16 @@ void	generate_frequence_table(t_huff *huff)
 	int				i;
 
 	i = -1;
-	while (++i < SIZE_ASCII)
+	while (++i < ASCII_SIZE)
 		huff->freq_tab.ascii_table[i] = 0;
 	i = -1;
 	while (huff->freq_tab.str_file[++i])
 	{
-		//if (huff->freq_tab.str_file[i] < SIZE_ASCII)
+		//if (huff->freq_tab.str_file[i] < ASCII_SIZE)
 			huff->freq_tab.ascii_table[huff->freq_tab.str_file[i]]++;
 	}
 	/*i = -1;
-	while (++i < SIZE_ASCII)
+	while (++i < ASCII_SIZE)
 	{
 		if (huff->freq_tab.ascii_table[i] > 0)
 			printf("%d %d\n", i, huff->freq_tab.ascii_table[i]); //print tests
@@ -100,5 +100,6 @@ int	main(int argc, char *argv[])
 	generate_frequence_table(&huff);
 	generate_sorted_list(&huff);
 	generate_huffman_tree(&huff);
+	generate_dictionary(&huff);
 	return (0);
 }
