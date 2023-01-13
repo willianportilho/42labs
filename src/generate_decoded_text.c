@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:22:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 00:50:15 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:47:08 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,16 @@ void	generate_decoded_text(t_huff *huff)
 	aux = huff->list.root;
 	while (huff->txt.coded_text[++pos])
 	{
-		while ((aux->left != NULL) && (aux->right != NULL))
+		if (huff->txt.coded_text[pos] == '0')
+			aux = aux->left;
+		else
+			aux = aux->right;
+		if ((aux->left == NULL) && (aux->right == NULL))
 		{
-			if (huff->txt.coded_text[pos] == '0')
-				aux = aux->left;
-			else
-				aux = aux->right;
-			pos++;
+			huff->txt.decoded_text[++pos_2] = aux->character;
+			aux = huff->list.root;
 		}
-		pos--;
-		huff->txt.decoded_text[++pos_2] = aux->character;
-		aux = huff->list.root;
 	}
-	printf("\n result = %s\n", huff->txt.decoded_text);
 	huff->txt.decoded_text[pos] = '\0';
+	printf("\n result = %s\n", huff->txt.decoded_text);
 }

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 00:40:54 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:04:31 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	main(int argc, char *argv[])
 		dprintf(2, "encoder: error: needed more than one argument\n");
 		exit (EXIT_FAILURE);
 	}
-	//setlocale(LC_ALL, "Portuguese");
+	setlocale(LC_ALL, "utf8");
 	get_file(argc, argv, &huff);
 	generate_frequence_table(&huff);
 	generate_sorted_list(&huff);

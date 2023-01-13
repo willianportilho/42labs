@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/12 23:51:13 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:02:05 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdlib.h>	// exit - malloc
 # include <fcntl.h>		// open
 # include <string.h>	// strcat strcpy
-//# include <locale.h>
+# include <locale.h>	// utf-8
 
 # define BUFFER_SIZE 1024 // used in the read function
 # define ASCII_SIZE 256
