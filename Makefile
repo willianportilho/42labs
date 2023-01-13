@@ -6,13 +6,14 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 11:25:18 by wportilh          #+#    #+#              #
-#    Updated: 2023/01/13 00:34:29 by wportilh         ###   ########.fr        #
+#    Updated: 2023/01/13 14:08:32 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES_ENC	=	encoder.c utils.c generate_sorted_list.c \
 				generate_huffman_tree.c generate_dictionary.c \
-				generate_coded_text.c generate_decoded_text.c
+				generate_coded_text.c generate_decoded_text.c \
+				compress_code.c
 
 SOURCES_DEC	=	decoder.c
 

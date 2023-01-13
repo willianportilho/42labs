@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:22:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 10:47:08 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:52:32 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ void	generate_decoded_text(t_huff *huff)
 		}
 	}
 	huff->txt.decoded_text[pos] = '\0';
-	printf("\n result = %s\n", huff->txt.decoded_text);
+	printf("\ndecoded_text = %s\n", huff->txt.decoded_text);
 }
