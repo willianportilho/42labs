@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:43:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/12 20:26:34 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/12 22:27:05 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	print_dictionary(unsigned int *ascii_table, char **dictionary)
 	while (++i < ASCII_SIZE)
 	{
 		if (ascii_table[i] > 0)
-				printf("%3d: %s\n", i, dictionary[i]);
+				printf("%3d: %6s: %c\n", i, dictionary[i], i);
 	}
 }
 

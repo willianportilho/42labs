@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/12 19:38:54 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/12 22:43:16 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,19 @@ void	get_file(int argc, char *argv[], t_huff *huff)
 	int	fd;
 
 	i = 1;
-	huff->freq_tab.str_file = NULL;
+	huff->txt.text = NULL;
 	while (i < argc)
 	{
 	fd = open(argv[i++], O_RDONLY);
 	if (fd == -1)
 	{
 		dprintf(2, "file error\n");
-		free (huff->freq_tab.str_file);
+		free (huff->txt.text);
 		exit (EXIT_FAILURE);
 	}
-	huff->freq_tab.str_file = read_file(fd);
+	huff->txt.text = read_file(fd);
 	}
-	//printf("%s\n", huff->freq_tab.str_file); //printa na tela
+	//printf("%s\n", huff->txt.text); //printa na tela
 }
 
 /*
@@ -73,10 +73,10 @@ void	generate_frequence_table(t_huff *huff)
 	while (++i < ASCII_SIZE)
 		huff->freq_tab.ascii_table[i] = 0;
 	i = -1;
-	while (huff->freq_tab.str_file[++i])
+	while (huff->txt.text[++i])
 	{
-		//if (huff->freq_tab.str_file[i] < ASCII_SIZE)
-			huff->freq_tab.ascii_table[huff->freq_tab.str_file[i]]++;
+		//if (huff->txt.text[i] < ASCII_SIZE)
+			huff->freq_tab.ascii_table[huff->txt.text[i]]++;
 	}
 	/*i = -1;
 	while (++i < ASCII_SIZE)
@@ -101,5 +101,6 @@ int	main(int argc, char *argv[])
 	generate_sorted_list(&huff);
 	generate_huffman_tree(&huff);
 	generate_dictionary(&huff);
+	code(&huff);
 	return (0);
 }

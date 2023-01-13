@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/12 20:10:15 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/12 22:56:02 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ typedef struct  s_list
 typedef struct s_freq_tab
 {
 	unsigned int	ascii_table[256];
-	unsigned char	*str_file;
 }					t_freq_tab;
 
 typedef struct s_dictionary
@@ -56,9 +55,16 @@ typedef struct s_dictionary
 	char	**dictionary;
 }					t_dictionary;
 
+typedef struct s_text
+{
+	unsigned char	*text;
+	char			*coded_text;
+}					t_text;
+
 /*Estrutura principal*/
 typedef struct s_huff
 {
+	t_text			txt;
 	t_dictionary	dic;
 	t_freq_tab		freq_tab;
 	t_list			list;
@@ -73,6 +79,9 @@ void			generate_huffman_tree(t_huff *huff);
 
 /*generate_dictionary.c*/
 void    		generate_dictionary(t_huff *huff);
+
+/*code.c*/
+void			code(t_huff *huff);
 
 /*Util functions (utils.c)*/
 size_t			ft_strlen(char *s);
