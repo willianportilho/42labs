@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/12 22:43:16 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 00:40:54 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int	main(int argc, char *argv[])
 	generate_sorted_list(&huff);
 	generate_huffman_tree(&huff);
 	generate_dictionary(&huff);
-	code(&huff);
+	generate_coded_text(&huff);
+	generate_decoded_text(&huff);
 	return (0);
 }

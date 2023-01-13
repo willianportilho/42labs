@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/12 22:56:02 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:51:13 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_dictionary
 typedef struct s_text
 {
 	unsigned char	*text;
+	unsigned char	*decoded_text;
 	char			*coded_text;
 }					t_text;
 
@@ -81,7 +82,10 @@ void			generate_huffman_tree(t_huff *huff);
 void    		generate_dictionary(t_huff *huff);
 
 /*code.c*/
-void			code(t_huff *huff);
+void			generate_coded_text(t_huff *huff);
+
+/*decode_text.c*/
+void			generate_decoded_text(t_huff *huff);
 
 /*Util functions (utils.c)*/
 size_t			ft_strlen(char *s);

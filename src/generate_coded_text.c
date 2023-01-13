@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   code.c                                             :+:      :+:    :+:   */
+/*   generate_coded_text.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:37:08 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/12 23:03:05 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 00:46:00 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
 
-void	code(t_huff *huff)
+void	generate_coded_text(t_huff *huff)
 {
 	int pos;
 	int	col;
