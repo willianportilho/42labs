@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 19:41:22 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 21:35:33 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,9 @@ void			compress_code(t_huff *huff);
 
 /*decompress_code.c*/
 void			decompress_code(t_huff *huff);
+
+/*free_memory.c*/
+void			free_memory(t_huff *huff);
 
 /*Util functions (utils.c)*/
 size_t			ft_strlen(char *s);

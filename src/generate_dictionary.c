@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:43:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/12 22:27:05 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 21:30:23 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,5 @@ void    generate_dictionary(t_huff *huff)
 	huff->dic.lenght_col = tree_heigth(huff->list.root) + 1;
 	alloc_dictionary(&huff->dic);
 	fill_dictionary(huff->dic.lenght_col, "", huff->dic.dictionary, huff->list.root);
-	print_dictionary(huff->freq_tab.ascii_table, huff->dic.dictionary);
+	//print_dictionary(huff->freq_tab.ascii_table, huff->dic.dictionary);
 }

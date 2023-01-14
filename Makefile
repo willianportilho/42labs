@@ -6,14 +6,14 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 11:25:18 by wportilh          #+#    #+#              #
-#    Updated: 2023/01/13 16:28:52 by wportilh         ###   ########.fr        #
+#    Updated: 2023/01/13 21:33:46 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES_ENC	=	encoder.c utils.c generate_sorted_list.c \
 				generate_huffman_tree.c generate_dictionary.c \
 				generate_coded_text.c generate_decoded_text.c \
-				compress_code.c decompress_code.c
+				compress_code.c decompress_code.c free_memory.c
 
 SOURCES_DEC	=	decoder.c
 
@@ -66,8 +66,7 @@ ${OBJ_PATH}%.o:	${SRC_PATH}%.c
 				@${CC} ${CFLAGS} -c $< -o $@
 
 run:			${NAME_ENC} ${NAME_DEC}
-				@./encoder
-				@./decoder
+				@${VAL} ./encoder src/encoder.c
 
 clean:		
 				@${RM_ALL} ${OBJ_PATH}

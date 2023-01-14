@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:10:16 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/12 20:14:01 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 21:30:15 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ void	generate_sorted_list(t_huff *huff)
 		}
 	}
 	t_node	*aux = huff->list.root;
-	printf("Tabela de frequencia\n");
+	//printf("Tabela de frequencia\n");
 	while (aux)
 	{
-		printf("character: %c / frequence: %d\n", aux->character, aux->frenquence); // print tests
+		//printf("character: %c / frequence: %d\n", aux->character, aux->frenquence); // print tests
 		aux = aux->next;
 	}
 }

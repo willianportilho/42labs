@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 20:31:49 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 21:59:37 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,18 @@ void	generate_frequence_table(t_huff *huff)
 	}*/
 }
 
+/* Inicializa a memória para ser possível liberá-la a qualquer momento*/
+static void init_memory(t_huff *huff)
+{
+	huff->txt.decompressed_code = NULL;;
+	huff->txt.compressed_code = NULL;;
+	huff->txt.decoded_text = NULL;;
+	huff->txt.coded_text = NULL;;
+	huff->txt.text = NULL;;
+	huff->dic.dictionary = NULL;;
+	huff->list.root = NULL;
+}
+
 int	main(int argc, char *argv[])
 {
 	t_huff	huff;
@@ -96,6 +108,7 @@ int	main(int argc, char *argv[])
 		exit (EXIT_FAILURE);
 	}
 	setlocale(LC_ALL, "utf8");
+	init_memory(&huff);
 	get_file(argc, argv, &huff);
 	generate_frequence_table(&huff);
 	generate_sorted_list(&huff);
@@ -105,5 +118,6 @@ int	main(int argc, char *argv[])
 	compress_code(&huff);
 	decompress_code(&huff);
 	generate_decoded_text(&huff);
+	free_memory(&huff);
 	return (0);
 }
