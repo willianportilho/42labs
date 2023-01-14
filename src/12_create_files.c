@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   11_create_files.c                                  :+:      :+:    :+:   */
+/*   12_create_files.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:04:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 10:35:01 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 14:46:37 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ void	create_files(int argc, char *argv[], t_huff *huff)
 
 	i = 0;
 	j = -1;
+	huff->txt.tmpin = dup(0);
+	huff->txt.tmpout = dup(1);
 	while ((++i < argc) && (argc > 2))
 	{
 		huff->file.name_new_file = ft_strjoin(argv[i], ".dec"); // dec significa descompactado
 		new_file = open(huff->file.name_new_file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-		if (new_file == -1)
+		if (new_file == ERROR)
 			exit_msg_error(PERROR_MSG, "", huff);
 		dup2(new_file, STDOUT_FILENO);
 		close(new_file);
@@ -43,7 +45,7 @@ void	create_files(int argc, char *argv[], t_huff *huff)
 	j = -1;
 	huff->file.name_new_file = ft_strjoin("decompress_txt", ".all"); // all means all decompress texts in one file
 	new_file = open(huff->file.name_new_file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (new_file == -1)
+	if (new_file == ERROR)
 		exit_msg_error(PERROR_MSG, "", huff);
 	dup2(new_file, STDOUT_FILENO);
 	close(new_file);
@@ -62,7 +64,7 @@ void	create_files(int argc, char *argv[], t_huff *huff)
 	j = -1;
 	huff->file.name_new_file = ft_strjoin("compress_txt", ".all"); // all means all decompress texts in one file
 	new_file = open(huff->file.name_new_file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (new_file == -1)
+	if (new_file == ERROR)
 		exit_msg_error(PERROR_MSG, "", huff);
 	dup2(new_file, STDOUT_FILENO);
 	close(new_file);
@@ -73,4 +75,8 @@ void	create_files(int argc, char *argv[], t_huff *huff)
 	}
 	close(new_file);
 	free(huff->file.name_new_file);
+	dup2(huff->txt.tmpin, 0);
+	dup2(huff->txt.tmpout, 1);
+	close(huff->txt.tmpin);
+	close(huff->txt.tmpout);
 }

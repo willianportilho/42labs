@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:37:08 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 10:34:30 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:55:24 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ void	coded_text(t_huff *huff)
 			huff->txt.coded_text[++col_2] = huff->dic.dictionary[huff->txt.text[pos]][col];
 	}
 	huff->txt.coded_text[++col_2] = '\0';
-	//printf("\n\ncoded_text\n%s", huff->txt.coded_text);
+	printf("\n\ncoded_text\n%s", huff->txt.coded_text);
 }

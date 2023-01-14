@@ -6,25 +6,29 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 11:25:18 by wportilh          #+#    #+#              #
-#    Updated: 2023/01/14 04:58:26 by wportilh         ###   ########.fr        #
+#    Updated: 2023/01/14 14:36:56 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES_ENC	=	01_encoder.c			\
-				03_get_file.c			\
-				04_sorted_list.c		\
-				05_huffman_tree.c		\
-				06_dictionary.c			\
-				07_coded_text.c			\
-				08_compress_code.c		\
-				09_decompress_code.c	\
-				10_decoded_text.c		\
-				11_create_files.c		\
-				12_free_memory.c		\
-				13_errors.c				\
-				14_utils.c
+				03_shared_memory.c		\
+				04_get_file.c			\
+				05_sorted_list.c		\
+				06_huffman_tree.c		\
+				07_dictionary.c			\
+				08_coded_text.c			\
+				09_compress_code.c		\
+				10_decompress_code.c	\
+				11_decoded_text.c		\
+				12_create_files.c		\
+				13_free_memory.c		\
+				14_errors.c				\
+				15_utils.c
 
-SOURCES_DEC	=	02_decoder.c
+SOURCES_DEC	=	02_decoder.c			\
+				03_shared_memory.c		\
+				13_free_memory.c		\
+				14_errors.c
 
 NAME_ENC =		encoder
 NAME_DEC =		decoder

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   13_errors.c                                        :+:      :+:    :+:   */
+/*   14_errors.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 04:59:14 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 10:31:15 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:35:03 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	exit_msg_error(int flag, char *message, t_huff *huff)
 {
 	if (flag == PERROR_MSG)
-		dprintf(2, "encoder: error: %s\n", message);
-	else
 		perror("encoder: error");
+	else
+		dprintf(2, "encoder: error: %s\n", message);
 	free_memory(huff);
 	exit (EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 10:35:36 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:48:59 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@
 # define ETX_DELIMITER "\003"	// unsigned char version
 # define PERROR_MSG 0			// use perror message
 # define SET_MSG 1				// use a personalized message
+# define FILE_NAME "Makefile"	// file reference to shared memory
+# define ERROR -1				// makes reference to error (-1)
+# define TYPE_INT 4				// indicates the type of variable (int)
+# define TYPE_CHAR_P 8			// indicates the type of variable (char *)
 
 /*includes the ordened list and the Huffman tree*/
 typedef struct  s_node
@@ -59,8 +63,8 @@ typedef struct s_freq_tab
 
 typedef struct s_dictionary
 {
-	int		lenght_col;
-	char	**dictionary;
+	int				lenght_col;
+	char			**dictionary;
 }					t_dictionary;
 
 typedef struct s_text
@@ -71,12 +75,19 @@ typedef struct s_text
 	char			*coded_text;
 	unsigned char	*compressed_code;
 	char			*decompressed_code;
+	int				tmpin;
+	int				tmpout;
 }					t_text;
 
 typedef struct s_file
 {
-	char	*name_new_file;
+	char			*name_new_file;
 }					t_file;
+
+typedef struct s_memory
+{
+	char			*block;
+}					t_memory;
 
 /*Estrutura principal*/
 typedef struct s_huff
@@ -86,8 +97,13 @@ typedef struct s_huff
 	t_dictionary	dic;
 	t_freq_tab		freq_tab;
 	t_list			list;
+	t_memory		mem;
 }					t_huff;
 
+/*03_shared_memory.c*/
+void			attach_memory_block(int size_block, int proj_id, t_huff *huff);
+int				detach_memory_block(char *block);
+int				destroy_memory_block(int proj_id);
 /*get_file.c*/
 void			get_file(int argc, char *argv[], t_huff *huff);
 
