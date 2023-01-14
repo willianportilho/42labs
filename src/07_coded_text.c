@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generate_coded_text.c                              :+:      :+:    :+:   */
+/*   07_coded_text.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:37:08 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 21:30:28 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 23:34:28 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
 
-void	generate_coded_text(t_huff *huff)
+void	coded_text(t_huff *huff)
 {
 	int pos;
 	int	col;
@@ -35,6 +35,5 @@ void	generate_coded_text(t_huff *huff)
 			huff->txt.coded_text[++col_2] = huff->dic.dictionary[huff->txt.text[pos]][col];
 	}
 	huff->txt.coded_text[++col_2] = '\0';
-	//printf("\n   size_text = %d\n", size_text);
-	//printf("encoded_text = %s\n", huff->txt.coded_text);
+	printf("\n\ncoded_text\n%s", huff->txt.coded_text);
 }

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generate_decoded_text.c                            :+:      :+:    :+:   */
+/*   10_decoded_text.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:22:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 21:30:25 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 23:34:34 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
 
-void	generate_decoded_text(t_huff *huff)
+void	decoded_text(t_huff *huff)
 {
 	int				size;
 	int				pos;
 	int				pos_2;
 	t_node			*aux;
 
-	size = ft_strlen(huff->txt.decompressed_code);
+	size = ft_strlen(huff->txt.decompressed_code) + 10000;
 	huff->txt.decoded_text = calloc(size + 1, sizeof(unsigned char));
 	if (huff->txt.decoded_text == NULL)
 		exit(EXIT_FAILURE);
@@ -46,5 +46,5 @@ void	generate_decoded_text(t_huff *huff)
 		}
 	}
 	huff->txt.decoded_text[pos] = '\0';
-	//printf("\ndecoded_text = %s\n", huff->txt.decoded_text);
+	printf("\ndecoded_text\n%s", huff->txt.decoded_text);
 }

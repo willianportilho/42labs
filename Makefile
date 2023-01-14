@@ -6,16 +6,23 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 11:25:18 by wportilh          #+#    #+#              #
-#    Updated: 2023/01/13 21:33:46 by wportilh         ###   ########.fr        #
+#    Updated: 2023/01/13 22:21:52 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES_ENC	=	encoder.c utils.c generate_sorted_list.c \
-				generate_huffman_tree.c generate_dictionary.c \
-				generate_coded_text.c generate_decoded_text.c \
-				compress_code.c decompress_code.c free_memory.c
+SOURCES_ENC	=	01_encoder.c			\
+				03_get_file.c			\
+				04_sorted_list.c		\
+				05_huffman_tree.c		\
+				06_dictionary.c			\
+				07_coded_text.c			\
+				08_compress_code.c		\
+				09_decompress_code.c	\
+				10_decoded_text.c		\
+				11_free_memory.c		\
+				12_utils.c
 
-SOURCES_DEC	=	decoder.c
+SOURCES_DEC	=	02_decoder.c
 
 NAME_ENC =		encoder
 NAME_DEC =		decoder

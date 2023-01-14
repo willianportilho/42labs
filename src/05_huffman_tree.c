@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generate_huffman_tree.c                            :+:      :+:    :+:   */
+/*   05_huffman_tree.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:17:28 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 21:30:20 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 22:19:27 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	print_tree(t_node *root, int size_list)
 	}
 }
 
-void	generate_huffman_tree(t_huff *huff)
+void	huffman_tree(t_huff *huff)
 {
 	t_node	*parent;
 	t_node	*child_left;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   decompress_code.c                                  :+:      :+:    :+:   */
+/*   09_decompress_code.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:27:40 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 21:30:30 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 23:35:42 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	decompress_code(t_huff *huff)
 	huff->txt.decompressed_code = calloc((size + 1), sizeof(char));
 	if (huff->txt.decompressed_code == NULL)
 		exit(EXIT_FAILURE);
-	while (huff->txt.compressed_code[++i])
+	while ((huff->txt.compressed_code[++i]) || (i < huff->txt.size_txt))
 	{
 		j = 7;
 		while (j >= 0)
@@ -47,5 +47,6 @@ void	decompress_code(t_huff *huff)
 		}
 	}
 	huff->txt.decompressed_code[++k] = '\0';
-	//printf("\ndecompresscode = %s\n", huff->txt.decompressed_code);
+	printf("\n\n\n\ndecompressed_code\n");
+		printf("%s\n", huff->txt.decompressed_code);
 }

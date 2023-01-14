@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 21:35:33 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 23:02:08 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_dictionary
 
 typedef struct s_text
 {
+	long			size_txt;
 	unsigned char	*text;
 	unsigned char	*decoded_text;
 	char			*coded_text;
@@ -73,21 +74,24 @@ typedef struct s_huff
 	t_list			list;
 }					t_huff;
 
-/*generate_sorted_list.c*/
+/*get_file.c*/
+void			get_file(int argc, char *argv[], t_huff *huff);
+
+/*sorted_list.c*/
 void			sort_list(t_node *node, t_huff *huff);
-void			generate_sorted_list(t_huff *huff);
+void			sorted_list(t_huff *huff);
 
-/*generate_huffman_tree.c*/
-void			generate_huffman_tree(t_huff *huff);
+/*huffman_tree.c*/
+void			huffman_tree(t_huff *huff);
 
-/*generate_dictionary.c*/
-void    		generate_dictionary(t_huff *huff);
+/*dictionary.c*/
+void			dictionary(t_huff *huff);
 
 /*code.c*/
-void			generate_coded_text(t_huff *huff);
+void			coded_text(t_huff *huff);
 
 /*decode_text.c*/
-void			generate_decoded_text(t_huff *huff);
+void			decoded_text(t_huff *huff);
 
 /*compress_code.c*/
 void			compress_code(t_huff *huff);

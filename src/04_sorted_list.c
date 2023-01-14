@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generate_sorted_list.c                             :+:      :+:    :+:   */
+/*   04_sorted_list.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:10:16 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 21:30:15 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 22:19:22 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	sort_list(t_node *node, t_huff *huff)
 	huff->list.size_list++;
 }
 
-void	generate_sorted_list(t_huff *huff)
+void	sorted_list(t_huff *huff)
 {
 	int		i;
 	t_node	*node;
