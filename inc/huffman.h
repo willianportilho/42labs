@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 15:48:59 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 16:52:02 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,8 @@ typedef struct s_file
 
 typedef struct s_memory
 {
-	char			*block;
+	int	ascii_table[256];
+	int	size_compress_code;
 }					t_memory;
 
 /*Estrutura principal*/
@@ -97,12 +98,14 @@ typedef struct s_huff
 	t_dictionary	dic;
 	t_freq_tab		freq_tab;
 	t_list			list;
-	t_memory		mem;
+	t_memory		*mem;
 }					t_huff;
 
+void	encode_shared_memory(t_huff *huff);
+
 /*03_shared_memory.c*/
-void			attach_memory_block(int size_block, int proj_id, t_huff *huff);
-int				detach_memory_block(char *block);
+void			*attach_memory_block(int size_block, int proj_id, t_huff *huff);
+int				detach_memory_block(void *block);
 int				destroy_memory_block(int proj_id);
 /*get_file.c*/
 void			get_file(int argc, char *argv[], t_huff *huff);

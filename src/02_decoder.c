@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:43:40 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 15:50:38 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 16:58:01 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ int	main(void)
 	t_huff	huff;
 
 	init_memory(&huff);
-	attach_memory_block((23 + 1) * sizeof(char), 1, &huff);
-	if (huff.mem.block == NULL)
-		exit_msg_error(PERROR_MSG, "", &huff);
-	printf("decoder: %s\n", huff.mem.block);
-	detach_memory_block(huff.mem.block);
+	huff.mem = attach_memory_block(sizeof(t_memory *), 1, &huff);
+	printf("decoder: %d\n", huff.mem->ascii_table[0]);
+	printf("decoder: %d\n", huff.mem->ascii_table[1]);
+	printf("decoder: %d\n", huff.mem->ascii_table[2]);
+	printf("decoder: %d\n", huff.mem->ascii_table[3]);
+	detach_memory_block(huff.mem);
 	//free_memory(&huff);
 	return (0);
 }

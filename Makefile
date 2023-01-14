@@ -6,12 +6,12 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 11:25:18 by wportilh          #+#    #+#              #
-#    Updated: 2023/01/14 14:36:56 by wportilh         ###   ########.fr        #
+#    Updated: 2023/01/14 16:53:07 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES_ENC	=	01_encoder.c			\
-				03_shared_memory.c		\
+				03_memory.c				\
 				04_get_file.c			\
 				05_sorted_list.c		\
 				06_huffman_tree.c		\
@@ -23,10 +23,11 @@ SOURCES_ENC	=	01_encoder.c			\
 				12_create_files.c		\
 				13_free_memory.c		\
 				14_errors.c				\
-				15_utils.c
+				15_utils.c				\
+				encode_shared_memory.c
 
 SOURCES_DEC	=	02_decoder.c			\
-				03_shared_memory.c		\
+				03_memory.c		\
 				13_free_memory.c		\
 				14_errors.c
 

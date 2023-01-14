@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 15:50:16 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 16:51:34 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,10 @@ int	main(int argc, char *argv[])
 	dictionary(&huff);
 	coded_text(&huff);
 	compress_code(&huff);
+	encode_shared_memory(&huff);
 	decompress_code(&huff);
 	decoded_text(&huff);
 	create_files(argc, argv, &huff);
-
-	attach_memory_block((23 + 1) * sizeof(char), 1, &huff);
-	strncpy(huff.mem.block, "Teste de funcionamento", 23 * sizeof(char));
-	printf("encoder: %s\n", huff.mem.block);
-	detach_memory_block(huff.mem.block);
 	free_memory(&huff);
 	return (0);
 }

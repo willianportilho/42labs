@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_shared_memory.c                                 :+:      :+:    :+:   */
+/*   03_memory.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 11:40:07 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 15:45:33 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 16:54:37 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,21 @@ static int	get_shared_block(int size_block, int proj_id)
 	return (id);
 }
 
-void	attach_memory_block(int size_block, int proj_id, t_huff *huff)
+void	*attach_memory_block(int size_block, int proj_id, t_huff *huff)
 {
-	int	id_block;
+	int		id_block;
+	void	*block;
 
 	id_block = get_shared_block(size_block, proj_id);
 	if (id_block == ERROR)
 		exit_msg_error(PERROR_MSG, "", huff);
-	huff->mem.block = shmat(id_block, NULL, 0);
-	if (huff->mem.block == (char *)ERROR)
+	block = shmat(id_block, NULL, 0);
+	if (block == (void *)ERROR)
 		exit_msg_error(PERROR_MSG, "", huff);
+	return (block);
 }
 
-int	detach_memory_block(char *block)
+int	detach_memory_block(void *block)
 {
 	int	result;
 
