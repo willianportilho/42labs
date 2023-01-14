@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:10:16 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 03:02:56 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:33:40 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ static void	fill_table(int i, t_node **node, t_huff *huff)
 {
 	*node = malloc(sizeof(t_node));
 	if (!*node)
-	{
-		dprintf(2, "encoder: error: allocation (fill_table)");
-		exit (EXIT_FAILURE);
-	}
+		exit_msg_error(PERROR_MSG, "", huff);
 	(*node)->character = i;
 	(*node)->frequency = huff->freq_tab.ascii_table[i];
 	(*node)->right = NULL;

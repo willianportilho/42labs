@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:04:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 04:28:22 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:35:01 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	create_files(int argc, char *argv[], t_huff *huff)
 	{
 		huff->file.name_new_file = ft_strjoin(argv[i], ".dec"); // dec significa descompactado
 		new_file = open(huff->file.name_new_file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		if (new_file == -1)
+			exit_msg_error(PERROR_MSG, "", huff);
 		dup2(new_file, STDOUT_FILENO);
 		close(new_file);
 		if (huff->txt.decoded_text)
@@ -41,6 +43,8 @@ void	create_files(int argc, char *argv[], t_huff *huff)
 	j = -1;
 	huff->file.name_new_file = ft_strjoin("decompress_txt", ".all"); // all means all decompress texts in one file
 	new_file = open(huff->file.name_new_file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (new_file == -1)
+		exit_msg_error(PERROR_MSG, "", huff);
 	dup2(new_file, STDOUT_FILENO);
 	close(new_file);
 	if (huff->txt.decoded_text)
@@ -58,6 +62,8 @@ void	create_files(int argc, char *argv[], t_huff *huff)
 	j = -1;
 	huff->file.name_new_file = ft_strjoin("compress_txt", ".all"); // all means all decompress texts in one file
 	new_file = open(huff->file.name_new_file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (new_file == -1)
+		exit_msg_error(PERROR_MSG, "", huff);
 	dup2(new_file, STDOUT_FILENO);
 	close(new_file);
 	if ((huff->txt.compressed_code) || (huff->txt.size_compress))

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:22:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 04:19:29 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:34:49 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	decoded_text(t_huff *huff)
 	size = ft_strlen(huff->txt.decompressed_code) + 1;
 	huff->txt.decoded_text = calloc(size + 1, sizeof(unsigned char));
 	if (huff->txt.decoded_text == NULL)
-		exit(EXIT_FAILURE);
+		exit_msg_error(PERROR_MSG, "", huff);
 	pos = -1;
 	pos_2 = -1;
 	aux = huff->list.root;
@@ -36,7 +36,7 @@ void	decoded_text(t_huff *huff)
 		{
 			if (aux->frequency == 0) // tratamento dos bits 0 restantes
 			{
-				printf("\ndecoded_text = %s\n", huff->txt.decoded_text);
+				//printf("\ndecoded_text = %s\n", huff->txt.decoded_text);
 				huff->txt.decoded_text[pos] = '\0';
 				return ;
 			}	

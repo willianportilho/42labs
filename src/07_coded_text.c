@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:37:08 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 04:20:02 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:34:30 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	coded_text(t_huff *huff)
 		size_text += ft_strlen(huff->dic.dictionary[huff->txt.text[pos]]);
 	huff->txt.coded_text = malloc((size_text + 1) * sizeof(char));
 	if (huff->txt.coded_text == NULL)
-		exit(EXIT_FAILURE);
+		exit_msg_error(PERROR_MSG, "", huff);
 	pos = -1;
 	col_2 = -1;
 	while (huff->txt.text[++pos])

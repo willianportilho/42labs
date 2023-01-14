@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:43:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 04:20:28 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:34:23 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ static int	tree_heigth(t_node *root)
 	return (right);
 }
 
-static void    alloc_dictionary(t_dictionary *dic)
+static void    alloc_dictionary(t_dictionary *dic, t_huff *huff)
 {
 	int	i;
 
 	i = -1;
 	dic->dictionary = malloc((ASCII_SIZE + 1) * sizeof(char **));
 	if (dic->dictionary == NULL)
-		exit(EXIT_FAILURE);
+		exit_msg_error(PERROR_MSG, "", huff);
 	while (++i < ASCII_SIZE)
 	{
 		dic->dictionary[i] = calloc((dic->lenght_col + 1), sizeof(char));
 		if (dic->dictionary[i] == NULL)
-			exit(EXIT_FAILURE);
+			exit_msg_error(PERROR_MSG, "", huff);
 	}
 	dic->dictionary[i] = NULL;
 }
@@ -78,7 +78,7 @@ void	print_dictionary(unsigned int *ascii_table, char **dictionary)
 void    dictionary(t_huff *huff)
 {
 	huff->dic.lenght_col = tree_heigth(huff->list.root) + 1;
-	alloc_dictionary(&huff->dic);
+	alloc_dictionary(&huff->dic, huff);
 	fill_dictionary(huff->dic.lenght_col, "", huff->dic.dictionary, huff->list.root);
 	//print_dictionary(huff->freq_tab.ascii_table, huff->dic.dictionary);
 }

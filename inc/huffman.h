@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 04:23:07 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:35:36 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 # include <sys/ipc.h>	// shared memory
 # include <sys/shm.h>	// shared memory
 # include <unistd.h>	// read
-# include <stdio.h>		// dprintf
-# include <stdlib.h>	// exit - malloc
+# include <stdio.h>		// dprintf | perror
+# include <stdlib.h>	// exit | malloc
 # include <fcntl.h>		// open
-# include <string.h>	// strcat strcpy
+# include <string.h>	// strcat | strcpy
 # include <locale.h>	// utf-8
+# include <sys/types.h>	// opendir
+# include <dirent.h>	// opendir
+
 
 # define BUFFER_SIZE 1024		// used in the read function
 # define ASCII_SIZE 256
@@ -29,6 +32,8 @@
 # define ONE_FILE 1
 # define ETX 3					// means end of text (number 3 in the ascii table)
 # define ETX_DELIMITER "\003"	// unsigned char version
+# define PERROR_MSG 0			// use perror message
+# define SET_MSG 1				// use a personalized message
 
 /*includes the ordened list and the Huffman tree*/
 typedef struct  s_node
@@ -114,9 +119,13 @@ void			create_files(int argc, char *argv[], t_huff *huff);
 /*free_memory.c*/
 void			free_memory(t_huff *huff);
 
+/*error.c*/
+void			exit_msg_error(int flag, char *message, t_huff *huff);
+
 /*Util functions (utils.c)*/
 size_t			ft_strlen(char *s);
 char			*ft_strjoin(char *s1, char *s2);
 unsigned char	*ft_strjoin_free_s1(unsigned char **s1, unsigned char *s2);
+int				check_if_is_a_directory(char *path);
 
 #endif

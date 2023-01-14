@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:17:28 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 03:03:14 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:34:09 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	huffman_tree(t_huff *huff)
 		child_right = detach_a_node(huff);
 		parent = (t_node *)malloc(sizeof(t_node));
 		if (!parent)
-			exit(EXIT_FAILURE);
+			exit_msg_error(PERROR_MSG, "", huff);
 		parent->left = child_left;
 		parent->right = child_right;
 		parent->character = 'p'; // can be any character

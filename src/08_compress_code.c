@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:07:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 04:31:47 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:34:37 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	compress_code(t_huff *huff)
 	size = ft_strlen(huff->txt.coded_text) + 1; // A cada 8 bits, um char de alocação. *1 a mais para cálculos quebrados 
 	huff->txt.compressed_code = calloc((size + 1), sizeof(char));
 	if (huff->txt.compressed_code == NULL)
-		exit(EXIT_FAILURE);
+		exit_msg_error(PERROR_MSG, "", huff);
 	while (huff->txt.coded_text[++i])
 	{
 		mask = 1;
