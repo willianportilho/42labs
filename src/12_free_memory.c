@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_memory.c                                      :+:      :+:    :+:   */
+/*   12_free_memory.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:31:44 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 21:53:34 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 03:47:19 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ static void	free_vector(char **vector)
 
 void	free_memory(t_huff *huff)
 {
+	free_tree(huff->list.root);
+	free_vector(huff->dic.dictionary);
 	free(huff->txt.decompressed_code);
 	free(huff->txt.compressed_code);
 	free(huff->txt.decoded_text);
 	free(huff->txt.coded_text);
 	free(huff->txt.text);
-	free_vector(huff->dic.dictionary);
-	free_tree(huff->list.root);
 }

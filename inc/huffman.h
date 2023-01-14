@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 23:02:08 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 04:23:07 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,18 @@
 # include <string.h>	// strcat strcpy
 # include <locale.h>	// utf-8
 
-# define BUFFER_SIZE 1024 // used in the read function
+# define BUFFER_SIZE 1024		// used in the read function
 # define ASCII_SIZE 256
 # define TRUE 1
 # define FALSE 0
+# define ONE_FILE 1
+# define ETX 3					// means end of text (number 3 in the ascii table)
+# define ETX_DELIMITER "\003"	// unsigned char version
 
 /*includes the ordened list and the Huffman tree*/
 typedef struct  s_node
 {
-	int				frenquence;
+	int				frequency;
 	unsigned char	character;
 	struct  s_node	*right;
 	struct  s_node	*left;
@@ -57,7 +60,7 @@ typedef struct s_dictionary
 
 typedef struct s_text
 {
-	long			size_txt;
+	long			size_compress;
 	unsigned char	*text;
 	unsigned char	*decoded_text;
 	char			*coded_text;
@@ -65,9 +68,15 @@ typedef struct s_text
 	char			*decompressed_code;
 }					t_text;
 
+typedef struct s_file
+{
+	char	*name_new_file;
+}					t_file;
+
 /*Estrutura principal*/
 typedef struct s_huff
 {
+	t_file			file;
 	t_text			txt;
 	t_dictionary	dic;
 	t_freq_tab		freq_tab;
@@ -99,11 +108,15 @@ void			compress_code(t_huff *huff);
 /*decompress_code.c*/
 void			decompress_code(t_huff *huff);
 
+/*create_files.c*/
+void			create_files(int argc, char *argv[], t_huff *huff);
+
 /*free_memory.c*/
 void			free_memory(t_huff *huff);
 
 /*Util functions (utils.c)*/
 size_t			ft_strlen(char *s);
+char			*ft_strjoin(char *s1, char *s2);
 unsigned char	*ft_strjoin_free_s1(unsigned char **s1, unsigned char *s2);
 
 #endif

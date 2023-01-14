@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   13_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 00:18:28 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/11 01:50:25 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 02:21:27 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,28 @@ unsigned char	*ft_strjoin_free_s1(unsigned char **s1, unsigned char *s2)
 		new_str[i++] = s2[j++];
 	new_str[i] = '\0';
 	free (*s1);
+	return (new_str);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	int		i;
+	int		j;
+	char	*new_str;
+
+	i = -1;
+	j = -1;
+	new_str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!new_str)
+		return (NULL);
+	while (s1[++i])
+		new_str[i] = s1[i];
+	while (s2[++j])
+	{
+		new_str[i] = s2[j];
+		i++;
+	}
+	new_str[i] = '\0';
 	return (new_str);
 }
 

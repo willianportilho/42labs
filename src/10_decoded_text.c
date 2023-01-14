@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:22:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 23:34:34 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 04:19:29 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	decoded_text(t_huff *huff)
 	int				pos_2;
 	t_node			*aux;
 
-	size = ft_strlen(huff->txt.decompressed_code) + 10000;
+	size = ft_strlen(huff->txt.decompressed_code) + 1;
 	huff->txt.decoded_text = calloc(size + 1, sizeof(unsigned char));
 	if (huff->txt.decoded_text == NULL)
 		exit(EXIT_FAILURE);
@@ -34,17 +34,18 @@ void	decoded_text(t_huff *huff)
 			aux = aux->right;
 		if ((aux->left == NULL) && (aux->right == NULL))
 		{
-			if (aux->frenquence == 0) // tratamento dos bits 0 restantes
+			if (aux->frequency == 0) // tratamento dos bits 0 restantes
 			{
 				printf("\ndecoded_text = %s\n", huff->txt.decoded_text);
 				huff->txt.decoded_text[pos] = '\0';
 				return ;
-			}
+			}	
 			huff->txt.decoded_text[++pos_2] = aux->character;
-			aux->frenquence--; // tratamento para bits restantes no último byte do código descompactado
+			aux->frequency--; // tratamento para bits restantes no último byte do código descompactado
 			aux = huff->list.root;
 		}
 	}
 	huff->txt.decoded_text[pos] = '\0';
-	printf("\ndecoded_text\n%s", huff->txt.decoded_text);
+	//printf("\ndelimiter2 = %ld\n", huff->file.delimiter[1]);
+	//printf("\ndecoded_text\n%s", huff->txt.decoded_text);
 }

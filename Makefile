@@ -6,7 +6,7 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 11:25:18 by wportilh          #+#    #+#              #
-#    Updated: 2023/01/13 22:21:52 by wportilh         ###   ########.fr        #
+#    Updated: 2023/01/14 02:03:43 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,9 @@ SOURCES_ENC	=	01_encoder.c			\
 				08_compress_code.c		\
 				09_decompress_code.c	\
 				10_decoded_text.c		\
-				11_free_memory.c		\
-				12_utils.c
+				11_create_files.c		\
+				12_free_memory.c		\
+				13_utils.c
 
 SOURCES_DEC	=	02_decoder.c
 

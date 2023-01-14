@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 00:42:04 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 04:20:51 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 /* Inicializa a memória para ser possível liberá-la a qualquer momento*/
 static void init_memory(t_huff *huff)
 {
-	huff->txt.decompressed_code = NULL;;
-	huff->txt.compressed_code = NULL;;
-	huff->txt.decoded_text = NULL;;
-	huff->txt.coded_text = NULL;;
-	huff->txt.text = NULL;;
-	huff->dic.dictionary = NULL;;
+	huff->txt.decompressed_code = NULL;
+	huff->txt.compressed_code = NULL;
+	huff->txt.decoded_text = NULL;
+	huff->txt.coded_text = NULL;
+	huff->txt.text = NULL;
+	huff->dic.dictionary = NULL;
 	huff->list.root = NULL;
 }
 
@@ -40,12 +40,12 @@ static void	frequence_table(t_huff *huff)
 	i = -1;
 	while (huff->txt.text[++i])
 		huff->freq_tab.ascii_table[huff->txt.text[i]]++;
-	/*i = -1;
-	while (++i < ASCII_SIZE)
-	{
-		if (huff->freq_tab.ascii_table[i] > 0)
-			printf("%d %d\n", i, huff->freq_tab.ascii_table[i]); //print tests
-	}*/
+	//i = -1;
+	//while (++i < ASCII_SIZE)
+	//{
+	//	if (huff->freq_tab.ascii_table[i] > 0)
+	//		printf("%d %d\n", i, huff->freq_tab.ascii_table[i]); //print tests
+	//}
 }
 
 int	main(int argc, char *argv[])
@@ -68,6 +68,7 @@ int	main(int argc, char *argv[])
 	compress_code(&huff);
 	decompress_code(&huff);
 	decoded_text(&huff);
+	create_files(argc, argv, &huff);
 	free_memory(&huff);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:10:16 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 22:19:22 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 03:02:56 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	fill_table(int i, t_node **node, t_huff *huff)
 		exit (EXIT_FAILURE);
 	}
 	(*node)->character = i;
-	(*node)->frenquence = huff->freq_tab.ascii_table[i];
+	(*node)->frequency = huff->freq_tab.ascii_table[i];
 	(*node)->right = NULL;
 	(*node)->left = NULL;
 	(*node)->next = NULL;	
@@ -39,7 +39,7 @@ void	sort_list(t_node *node, t_huff *huff)
 
 	if (huff->list.root == NULL)
 		huff->list.root = node;
-	else if (node->frenquence < huff->list.root->frenquence)
+	else if (node->frequency < huff->list.root->frequency)
 	{
 		node->next = huff->list.root;
 		huff->list.root = node;
@@ -47,7 +47,7 @@ void	sort_list(t_node *node, t_huff *huff)
 	else
 	{
 		aux = huff->list.root;
-		while (aux->next && (aux->next->frenquence <= node->frenquence))
+		while (aux->next && (aux->next->frequency <= node->frequency))
 			aux = aux->next;
 		node->next = aux->next;
 		aux->next = node;
@@ -74,7 +74,7 @@ void	sorted_list(t_huff *huff)
 	//printf("Tabela de frequencia\n");
 	while (aux)
 	{
-		//printf("character: %c / frequence: %d\n", aux->character, aux->frenquence); // print tests
+		//printf("character: %c / frequence: %d\n", aux->character, aux->frequency); // print tests
 		aux = aux->next;
 	}
 }

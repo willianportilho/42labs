@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:43:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 22:52:56 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 04:20:28 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	print_dictionary(unsigned int *ascii_table, char **dictionary)
 	int	i;
 
 	i = -1;
-	printf("\nDicionário\n");
+	//printf("\nDicionário\n");
 	while (++i < ASCII_SIZE)
 	{
 		if (ascii_table[i] > 0)
@@ -80,5 +80,5 @@ void    dictionary(t_huff *huff)
 	huff->dic.lenght_col = tree_heigth(huff->list.root) + 1;
 	alloc_dictionary(&huff->dic);
 	fill_dictionary(huff->dic.lenght_col, "", huff->dic.dictionary, huff->list.root);
-	print_dictionary(huff->freq_tab.ascii_table, huff->dic.dictionary);
+	//print_dictionary(huff->freq_tab.ascii_table, huff->dic.dictionary);
 }

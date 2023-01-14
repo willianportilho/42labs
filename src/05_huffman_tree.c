@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:17:28 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 22:19:27 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 03:03:14 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	huffman_tree(t_huff *huff)
 		parent->left = child_left;
 		parent->right = child_right;
 		parent->character = 'p'; // can be any character
-		parent->frenquence = child_left->frenquence + child_right->frenquence;
+		parent->frequency = child_left->frequency + child_right->frequency;
 		parent->next = NULL; // here we detaches the parent node
 		sort_list(parent, huff); // and here, we reinsert in sort mode
 	}
