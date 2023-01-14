@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 15:23:25 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:41:22 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_text
 	unsigned char	*decoded_text;
 	char			*coded_text;
 	unsigned char	*compressed_code;
+	char			*decompressed_code;
 }					t_text;
 
 /*Estrutura principal*/
@@ -90,6 +91,9 @@ void			generate_decoded_text(t_huff *huff);
 
 /*compress_code.c*/
 void			compress_code(t_huff *huff);
+
+/*decompress_code.c*/
+void			decompress_code(t_huff *huff);
 
 /*Util functions (utils.c)*/
 size_t			ft_strlen(char *s);

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:07:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/13 15:53:05 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/13 20:20:50 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ void	compress_code(t_huff *huff)
 	k = -1;
 	byte = 0;
 	size = (ft_strlen(huff->txt.coded_text) / 8) + 1; // A cada 8 bits, um char de alocação. *1 a mais para cálculos quebrados 
-	huff->txt.compressed_code = malloc((size + 1)* sizeof(char));
+	huff->txt.compressed_code = calloc((size + 1), sizeof(char));
+	if (huff->txt.compressed_code == NULL)
+		exit(EXIT_FAILURE);
 	while (huff->txt.coded_text[++i])
 	{
 		mask = 1;
@@ -38,8 +40,6 @@ void	compress_code(t_huff *huff)
 		j--;
 		if (j < 0) // 8 bits foram preenchidos (1 byte). Temos um caractere
 		{
-			//printf("\nbyte = '%c'\n", byte);
-			//printf("\ntestando\n");
 			huff->txt.compressed_code[++k] = byte;
 			byte = 0;
 			j = 7;
