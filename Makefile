@@ -6,7 +6,7 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 11:25:18 by wportilh          #+#    #+#              #
-#    Updated: 2023/01/14 16:53:07 by wportilh         ###   ########.fr        #
+#    Updated: 2023/01/14 17:03:17 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SOURCES_ENC	=	01_encoder.c			\
 				13_free_memory.c		\
 				14_errors.c				\
 				15_utils.c				\
-				encode_shared_memory.c
+				encoder_shared_memory.c
 
 SOURCES_DEC	=	02_decoder.c			\
 				03_memory.c		\

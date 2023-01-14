@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 16:52:02 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:42:46 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>		// dprintf | perror
 # include <stdlib.h>	// exit | malloc
 # include <fcntl.h>		// open
-# include <string.h>	// strcat | strcpy
+# include <string.h>	// strcat | strcpy | memcpy
 # include <locale.h>	// utf-8
 # include <sys/types.h>	// opendir
 # include <dirent.h>	// opendir
@@ -86,8 +86,8 @@ typedef struct s_file
 
 typedef struct s_memory
 {
-	int	ascii_table[256];
-	int	size_compress_code;
+	unsigned int	ascii_table[256];
+	long			size_compressed_code;
 }					t_memory;
 
 /*Estrutura principal*/
