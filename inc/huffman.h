@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 08:48:28 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 10:11:28 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <locale.h>	// utf-8
 # include <sys/types.h>	// opendir
 # include <dirent.h>	// opendir
+#include <sys/time.h>	// gettimeofday
 
 # define BUFFER_SIZE 1024		// used in the read function
 # define ASCII_SIZE 256
@@ -73,6 +74,7 @@ typedef struct s_dictionary
 
 typedef struct s_text
 {
+	long			initial_time;
 	long			size_compress;
 	unsigned char	*text;
 	unsigned char	*decoded_text;
@@ -97,7 +99,7 @@ typedef struct s_memory_go
 
 typedef struct s_memory_back
 {
-	int				uncompress_time;
+	int				uncompress_inicial_time;
 	int				number_of_texts;
 	int				n_bytes_compressed_code;
 	int				n_bytes_decoded_txt;
@@ -172,5 +174,6 @@ unsigned char	*ft_strjoin_free_s1(unsigned char **s1, unsigned char *s2);
 int				check_if_is_a_directory(char *path);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 char			*ft_itoa(int n);
+long			current_time(void);
 
 #endif

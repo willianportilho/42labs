@@ -6,14 +6,14 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:27:40 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 04:44:08 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 10:18:36 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
 
 /* Will return 0 or a value greather than 0*/
-unsigned int	check_bit_value(unsigned char byte, int i)
+static unsigned int	check_bit_value(unsigned char byte, int i)
 {
 	unsigned char	mask;
 

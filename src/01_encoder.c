@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 08:51:09 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 10:17:49 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,17 @@ static void	check_args(int argc, char *argv[], t_huff *huff)
 		check_args_error(ARG_ERROR_3);
 }
 
+satatic void	print_info(t_huff *huff)
+{
+	huff->mem_b->uncompress_inicial_time = current_time() - huff->mem_b->uncompress_inicial_time;
+	dprintf(1, "----------------------------------------\n");
+	dprintf(1, "\ninfo.\n\n");
+	dprintf(1, "total decompressed: %10d bits\n", huff->mem_b->n_bytes_decoded_txt * 8);
+	dprintf(1, "total   compressed: %10d bits\n", huff->mem_b->n_bytes_compressed_code * 8);
+	dprintf(1, "time to uncompress: %10d   ms\n", huff->mem_b->uncompress_inicial_time);
+	dprintf(1, "\n----------------------------------------\n");
+}
+
 int	main(int argc, char *argv[])
 {
 	t_huff	huff;
@@ -117,6 +128,7 @@ int	main(int argc, char *argv[])
 	if (huff.flag == UNZIP)
 	{
 		shared_memory(argc, &huff);
+		print_info(&huff);
 		create_files(&huff);
 		free_shared_memory_two(&huff);
 	}

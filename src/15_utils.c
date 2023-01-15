@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 00:18:28 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 08:56:31 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 10:02:52 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,4 +169,12 @@ char	*ft_itoa(int n)
 		return (NULL);
 	put_value(str, index, n);
 	return (str);
+}
+
+long	current_time(void)
+{
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	return ((time.tv_usec / 1000) + (time.tv_sec * 1000));
 }
