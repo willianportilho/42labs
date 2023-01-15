@@ -12,7 +12,7 @@
 - [Introduction](#introduction)
 - [Explanation](#explanation)
 - [Shared Memory](#shared-memory)
-- [Huffman Tree](#tree)
+- [Huffman Algorithm](#huffman-algorithm)
 - [Usage](#%EF%B8%8F-usage)
 
 ## Introduction
