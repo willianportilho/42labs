@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:04:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 08:30:35 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:43:13 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,41 @@ static int	open_file(unsigned char *extension, unsigned char *file_name, unsigne
 	return (fd);
 }
 
+static void	create_zipped_file(t_huff *huff)
+{
+	int	i;
+	int	fd;
+
+	i = -1;
+	fd = open_file((unsigned char *)".all", (unsigned char *)"zipped", (unsigned char *)"", huff); // all means all zipped texts in one file
+	if (huff->txt.size_compress)
+	{
+		while(++i < huff->txt.size_compress)
+				dprintf(1, "%c", huff->txt.compressed_code[i]);
+	}
+	close(fd);
+}
+
+static void	create_all_unzipped_in_one_file(t_huff *huff)
+{
+	int	i;
+	int	fd;
+
+	i = -1;
+	fd = open_file((unsigned char *)".all", (unsigned char *)"unzipped", (unsigned char *)"", huff); // all means all unzipped texts in one file
+	if (huff->mem_ab.cp_decoded_code)
+	{
+		while(huff->mem_ab.cp_decoded_code[++i])
+		{
+			if (huff->mem_ab.cp_decoded_code[i] == ETX) // (int)3 ETX delimitador de término de textos
+				i++;
+			if (huff->mem_ab.cp_decoded_code[i])
+				dprintf(1, "%c", huff->mem_ab.cp_decoded_code[i]);
+		}
+	}
+	close(fd);
+}
+
 void	create_files(t_huff *huff)
 {
 	int	i;
@@ -49,7 +84,7 @@ void	create_files(t_huff *huff)
 	huff->txt.tmpout = dup(1);
 	if (huff->flag == UNZIP) 
 	{
-		while (++i < huff->mem_b->number_of_texts)
+		while (++i < huff->mem_b->number_of_texts) // creates the files one by one
 		{
 			fd = open_file((unsigned char *)".42", (unsigned char *)"unzipped_", (unsigned char *)ft_itoa(i), huff);
 			if (huff->mem_ab.cp_decoded_code)
@@ -63,29 +98,9 @@ void	create_files(t_huff *huff)
 			}
 			close(fd);
 		}
-		j = -1;
-		fd = open_file((unsigned char *)".all", (unsigned char *)"unzipped", (unsigned char *)"", huff); // all means all unzipped texts in one file
-		if (huff->mem_ab.cp_decoded_code)
-		{
-			while(huff->mem_ab.cp_decoded_code[++j])
-			{
-				if (huff->mem_ab.cp_decoded_code[j] == ETX) // (int)3 ETX delimitador de término de textos
-					j++;
-				if (huff->mem_ab.cp_decoded_code[j])
-					dprintf(1, "%c", huff->mem_ab.cp_decoded_code[j]);
-			}
-		}
-		close(fd);
+		create_all_unzipped_in_one_file(huff);
 	}
 	else
-	{
-		fd = open_file((unsigned char *)".all", (unsigned char *)"zipped", (unsigned char *)"", huff); // all means all zipped texts in one file
-		if (huff->txt.size_compress)
-		{
-			while(++j < huff->txt.size_compress)
-					dprintf(1, "%c", huff->txt.compressed_code[j]);
-		}
-		close(fd);
-		restaure_file_descriptors(huff->txt);
-	}
+		create_zipped_file(huff);
+	restaure_file_descriptors(huff->txt);
 }
