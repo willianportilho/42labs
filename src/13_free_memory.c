@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:31:44 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 20:45:19 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 01:10:20 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	free_memory(t_huff *huff)
 	free_vector(huff->dic.dictionary);
 	free(huff->txt.decompressed_code);
 	free(huff->txt.compressed_code);
-	free(huff->txt.cp_compressed_code);
+	free(huff->mem_ab->cp_compressed_code);
 	free(huff->txt.decoded_text);
 	free(huff->txt.coded_text);
 	free(huff->txt.text);

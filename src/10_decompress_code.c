@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:27:40 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 21:33:15 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 01:11:33 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	decompress_code(t_huff *huff)
 	huff->txt.decompressed_code = calloc((size + 1), sizeof(char));
 	if (huff->txt.decompressed_code == NULL)
 		exit_msg_error(PERROR_MSG, "", huff);
-	while ((huff->txt.cp_compressed_code[++i]) || (i < huff->mem_a->size_compressed_code))
+	while ((huff->mem_ab->cp_compressed_code[++i]) || (i < huff->mem_a->size_compressed_code))
 	{
 		j = 7;
 		while (j >= 0)
 		{
-			if (check_bit_value(huff->txt.cp_compressed_code[i], j) > 0)
+			if (check_bit_value(huff->mem_ab->cp_compressed_code[i], j) > 0)
 				huff->txt.decompressed_code[++k] = '1';
 			else
 				huff->txt.decompressed_code[++k] = '0';

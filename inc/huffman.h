@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 01:03:09 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 01:07:01 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,6 @@ typedef struct s_text
 	unsigned char	*decoded_text;
 	char			*coded_text;
 	unsigned char	*compressed_code;
-	unsigned char	*cp_compressed_code;
-	unsigned char	*cp_decoded_code;
 	char			*decompressed_code;
 	int				tmpin;
 	int				tmpout;
@@ -101,17 +99,24 @@ typedef struct s_memory_back
 	int				n_bytes_decoded_txt;
 }					t_memory_back;
 
+typedef struct s_memory_go_back
+{
+	unsigned char	*cp_compressed_code;
+	unsigned char	*cp_decoded_code;
+}					t_memory_go_back;
+
 /*Estrutura principal*/
 typedef struct s_huff
 {
-	int				flag;
-	t_file			file;
-	t_text			txt;
-	t_dictionary	dic;
-	t_freq_tab		freq_tab;
-	t_list			list;
-	t_memory_go		*mem_a;
-	t_memory_back	*mem_b;
+	int					flag;
+	t_file				file;
+	t_text				txt;
+	t_dictionary		dic;
+	t_freq_tab			freq_tab;
+	t_list				list;
+	t_memory_go			*mem_a;
+	t_memory_back		*mem_b;
+	t_memory_go_back	*mem_ab;
 }					t_huff;
 
 /*03_shared_memory.c*/
