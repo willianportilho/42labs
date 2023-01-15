@@ -36,23 +36,37 @@ To use shared memory, we use the ftok function, which returns a numerical key as
 ```c
 key = ftok("Makefile", proj_id);
 ```
-#### shmget
+##### shmget
 Uses the generated key to create a shared memory block associated with the key, returning a shared memory block ID:
 ```c
 id = shmget(key, size_block, 0644 | IPC_CREAT);
 ```
-#### shmat
+##### shmat
 It takes the ID and maps the block to this address space returns a block pointer to use.
 ```c
 void *block = shmat(id_block, NULL, 0);
 ```
-#### shmdt
+##### shmdt
 Issues a warning that the memory has already been used by the current program. This function does not release the block, it only issues the warning:
 
-#### shmclt
+##### shmclt
 Permanently erase memory
 
+---
+
 ### Huffman Algorithm
+
+##### frequence table
+To start solving the project, I needed to create a table that had the number of times a character from the ascii table appeared. We call this a "frequency table".
+To do this, just loop through the ascii table size to allow for all possible characters.
+
+##### sorted list
+Now, the algorithm needs the frequency table to be sorted, that is, the characters that are least, at the beginning. By making a linked list, this was possible:
+
+![ilustration image](images/image_2.jpg)
+*_Consult the [code](src/05_sorted_list.c.c) for more details_
+
+##### tree
 
 
 
@@ -65,11 +79,26 @@ https://github.com/42sp/42labs-selection-process-v4-willianportilho
 ```
 
 ## 🤖 Makefile Commands
-- `make` to create *.o objects and compile the libftprintf.a;
-- `make bonus` to include bonus functions (lists) in the libftprintf.a;
+- `make` to create *.o objects and compile encoder and decoder programms;
 - `make clean` to erase *.o objects;
-- `make fclean` to erase *.o objects and libftprintf.a;
-- `make re` to erase *.o objects and libftprintf.a, and recriate *.o and libftprintf.a;
+- `make fclean` to erase *.o objects and encoder and decoder programms;
+- `make re` to erase *.o objects and encoder and decoder programms, and recriate *.o and encoder and decoder programms;
+
+### How To Use The Programm
+
+_First_: if you ever want to zip one or more text files:
+<br />``./encoder -zip your_text_to_zip your_another_text_to_zip ...``<br />
+A zipped file (.zip) is generated
+
+_Second_: to unzip your texts:<br />
+``./decode``<br /> without flags or arguments
+
+_Third_: to get the files separated (.42 extension), and one file with all of them togheter (.all extension):<br />
+``./encoder -unzip``<br />
+
+
+*you can use ``ipcrm -a`` command if a memory error occur
+ENJOY
 
 # Labs 4º Edição
 
