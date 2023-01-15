@@ -11,8 +11,6 @@
 
 - [Introduction](#introduction)
 - [Explanation](#explanation)
-- [Example 1](#example-1-logic-function)
-- [Example 2](#example-2-call-function)
 - [Usage](#%EF%B8%8F-usage)
 
 ## Introduction
@@ -70,9 +68,24 @@ Now, the algorithm needs the frequency table to be sorted, that is, the characte
 With the frequency table ready, we can go ahead and assemble the tree.
 The rules are simple: We take the 2 characters with the lowest frequency, and we join them as children in a parent node. This node will receive the summed frequency of the two children, and will be placed in the frequency table according to their summed frequency. By repeating this process, the moment will come when the tree will be mounted:
 
-![ilustration image](images/image_3.jpg)
-*_Consult the [code](src/06_huffman_tree.c) for more details_
+![ilustration image](images/image_3.png)
+<br />*_Consult the [code](src/06_huffman_tree.c) for more details_
 
+#### Dictionary
+With the tree, we managed to assemble the dictionary with the codes that we will use to identify the characters.
+Each tree node has a left (0) and a right (1) child. The dictionary is formed from the path we take in the tree until we reach the character. Each one is unique.
+
+#### Coded text
+With this code for each character, it is enough for us to go through the entire text of original characters, and form a new file with the identification corresponding to the dictionary.
+
+#### Compress code
+In addition to the encoded file, we have to compress it. Thus, as the dictionary only has 0 and 1 to define the characters, we can put 8 of these zeros and ones within 1 byte (8 bits). So we do the compression.
+
+#### Decompress code
+After the file is compressed, to decompress it, we need to do the opposite way. We take each byte and access the 8 positions it has, from zero to eighth. If we find the number one, we write it to the file, if it is 0, we do the same, until the uncompressed text is formed.
+
+#### Decoded text
+Finally, we have the file in code format again (coding). Thus, we only need to access from the first index to the last of the coded file, making the path of the tree from the root, to find the characters corresponding to the code. When we find a character, we go back to the root, until we reach the end of the code.
 
 ## 🛠️ Usage
 <p> For use this aplication, follow these steps:</p>
