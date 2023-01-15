@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 21:06:09 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 00:13:23 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define ASCII_SIZE 256
 # define TRUE 1
 # define FALSE 0
-# define ONE_FILE 1
+# define ONE_FILE 2
 # define ETX 3					// means end of text (number 3 in the ascii table)
 # define ETX_DELIMITER "\003"	// unsigned char version
 # define PERROR_MSG 0			// use perror message
@@ -38,6 +38,7 @@
 # define ERROR -1				// makes reference to error (-1)
 # define TYPE_INT 4				// indicates the type of variable (int)
 # define TYPE_CHAR_P 8			// indicates the type of variable (char *)
+# define FLAG 1
 
 /*includes the ordened list and the Huffman tree*/
 typedef struct  s_node
@@ -75,6 +76,7 @@ typedef struct s_text
 	char			*coded_text;
 	unsigned char	*compressed_code;
 	unsigned char	*cp_compressed_code;
+	unsigned char	*cp_decoded_code;
 	char			*decompressed_code;
 	int				tmpin;
 	int				tmpout;
@@ -93,7 +95,9 @@ typedef struct s_memory_go
 
 typedef struct s_memory_back
 {
-	int	size_of_bytes_decoded_txt;
+	int				uncompress_time;
+	int				n_bytes_compressed_code;
+	int				n_bytes_decoded_txt;
 }					t_memory_back;
 
 /*Estrutura principal*/
@@ -104,7 +108,8 @@ typedef struct s_huff
 	t_dictionary	dic;
 	t_freq_tab		freq_tab;
 	t_list			list;
-	t_memory_go		*mem;
+	t_memory_go		*mem_a;
+	t_memory_back	*mem_b;
 }					t_huff;
 
 /*03_shared_memory.c*/

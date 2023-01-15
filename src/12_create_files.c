@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:04:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 14:46:37 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 00:21:51 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void	create_files(int argc, char *argv[], t_huff *huff)
 			exit_msg_error(PERROR_MSG, "", huff);
 		dup2(new_file, STDOUT_FILENO);
 		close(new_file);
-		if (huff->txt.decoded_text)
+		if (huff->txt.cp_decoded_code)
 		{
-			while(huff->txt.decoded_text[++j])
+			while(huff->txt.cp_decoded_code[++j])
 			{
-				if (huff->txt.decoded_text[j] == ETX) // (int)3 ETX delimitador de término de textos
+				if (huff->txt.cp_decoded_code[j] == ETX) // (int)3 ETX delimitador de término de textos
 					break ;
-				dprintf(1, "%c", huff->txt.decoded_text[j]);
+				dprintf(1, "%c", huff->txt.cp_decoded_code[j]);
 			}
 		}
 		close(new_file);
@@ -49,14 +49,14 @@ void	create_files(int argc, char *argv[], t_huff *huff)
 		exit_msg_error(PERROR_MSG, "", huff);
 	dup2(new_file, STDOUT_FILENO);
 	close(new_file);
-	if (huff->txt.decoded_text)
+	if (huff->txt.cp_decoded_code)
 	{
-		while(huff->txt.decoded_text[++j])
+		while(huff->txt.cp_decoded_code[++j])
 		{
-			if (huff->txt.decoded_text[j] == ETX) // (int)3 ETX delimitador de término de textos
+			if (huff->txt.cp_decoded_code[j] == ETX) // (int)3 ETX delimitador de término de textos
 				j++;
-			if (huff->txt.decoded_text[j])
-				dprintf(1, "%c", huff->txt.decoded_text[j]);
+			if (huff->txt.cp_decoded_code[j])
+				dprintf(1, "%c", huff->txt.cp_decoded_code[j]);
 		}
 	}
 	close(new_file);

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 11:40:07 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 18:02:14 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 22:24:41 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ void	*attach_memory_block(int size_block, int proj_id, t_huff *huff)
 
 	id_block = get_shared_block(size_block, proj_id);
 	if (id_block == ERROR)
+	{
+		printf("AQUIIII\n");
 		exit_msg_error(PERROR_MSG, "", huff);
+	}
 	block = shmat(id_block, NULL, 0);
 	if (block == (void *)ERROR)
 		exit_msg_error(PERROR_MSG, "", huff);
