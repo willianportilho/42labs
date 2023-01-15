@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:17:28 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 20:18:56 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 03:07:25 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ void	huffman_tree(t_huff *huff)
 		parent->next = NULL; // here we detaches the parent node
 		sort_list(parent, huff); // and here, we reinsert in sort mode
 	}
-	printf("\nÁrvore montada\n");
-	print_tree(huff->list.root, 0);
+	//printf("\nÁrvore montada\n");
+	//print_tree(huff->list.root, 0);
 }

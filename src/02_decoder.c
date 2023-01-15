@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:43:40 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 01:48:32 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 03:29:43 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(void)
 	detach_memory_block(huff.mem_ab.cp_decoded_code);
 	destroy_memory_block(0);
 	destroy_memory_block(1);
-	//free_memory(&huff);
+	free_memory(&huff);
 	return (0);
 }
 	/*printf("new: %ld\n", huff.mem_a->size_compressed_code);

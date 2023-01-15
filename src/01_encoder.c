@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 01:49:59 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 04:03:06 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ static void init_memory(t_huff *huff)
 	huff->txt.text = NULL;
 	huff->dic.dictionary = NULL;
 	huff->list.root = NULL;
+	huff->mem_ab.cp_decoded_code = NULL;
+	huff->txt.compressed_code = NULL;
+	huff->mem_ab.cp_decoded_code = NULL;
+	huff->mem_b = NULL;
+	huff->txt.size_compress = 0;
 }
 
 /*
@@ -38,8 +43,11 @@ static void	frequence_table(t_huff *huff)
 	while (++i < ASCII_SIZE)
 		huff->freq_tab.ascii_table[i] = 0;
 	i = -1;
-	while (huff->txt.text[++i])
-		huff->freq_tab.ascii_table[huff->txt.text[i]]++;
+	if (huff->txt.text)
+	{
+		while (huff->txt.text[++i])
+			huff->freq_tab.ascii_table[huff->txt.text[i]]++;
+	}		
 }
 
 static void	copy_freq_table(t_huff *huff)
@@ -66,12 +74,34 @@ static void	encode_shared_memory(t_huff *huff)
 	else
 	{
 		huff->mem_b = attach_memory_block(sizeof(t_memory_back *), 2, huff);
-		printf("compress bytes = %d\n", huff->mem_b->n_bytes_compressed_code);
-		printf(" decoded bytes = %d\n", huff->mem_b->n_bytes_decoded_txt);
-		printf("          time = %d\n", huff->mem_b->uncompress_time);
+		
 		huff->mem_ab.cp_decoded_code = attach_memory_block((huff->mem_b->n_bytes_decoded_txt + 1) * sizeof(unsigned char), 300, huff);
 		printf("result encoder= %s\n", huff->mem_ab.cp_decoded_code);
-		//destroy_memory_block(int proj_id); // destruir memória compartilhada
+	}
+}
+
+static void	check_args(int argc, char *argv[], t_huff *huff)
+{
+	if (argc < 2)
+	{
+		dprintf(2, "encoder: error: needed more than two arguments\nexample: ./encoder -zip txt.txt ...\n");
+		exit (EXIT_FAILURE);
+	}
+	else if (!ft_strncmp(argv[1], "-info", 6))
+	{
+		if (argc > 2)
+		{
+			dprintf(2, "encoder: error: -info flag has no arguments\n");
+			exit (EXIT_FAILURE);
+		}
+		huff->flag = INFO;
+	}
+	else if (!ft_strncmp(argv[1], "-zip", 5))
+		huff->flag = ZIP;
+	else
+	{
+		dprintf(2, "encoder: error: needed the a flag\nexample: ./encoder -zip\n");
+		exit (EXIT_FAILURE);
 	}
 }
 
@@ -79,32 +109,23 @@ int	main(int argc, char *argv[])
 {
 	t_huff	huff;
 
-	if (argc < 3)
-	{
-		dprintf(2, "encoder: error: needed more than two arguments\nexample: ./encoder -zip txt.txt ...\n");
-		exit (EXIT_FAILURE);
-	}
-	if (!ft_strncmp(argv[1], "-zip", 5))
-		huff.flag = ZIP;
-	else if (!ft_strncmp(argv[1], "-info", 6))
-		huff.flag = INFO;
-	else
-	{
-		dprintf(2, "encoder: error: needed the a flag\nexample: ./encoder -zip\n");
-		exit (EXIT_FAILURE);
-	}
-	//setlocale(LC_ALL, "utf8");
+	check_args(argc, argv, &huff);
+	setlocale(LC_ALL, "utf8");
 	init_memory(&huff);
-	get_file(argc, argv, &huff);
-	frequence_table(&huff);
-	sorted_list(huff.freq_tab.ascii_table, &huff);
-	huffman_tree(&huff);
-	dictionary(&huff);
-	coded_text(&huff);
-	compress_code(&huff);
-	encode_shared_memory(&huff);
+	if (huff.flag == ZIP)
+	{
+		get_file(argc, argv, &huff);
+		frequence_table(&huff);
+		sorted_list(huff.freq_tab.ascii_table, &huff);
+		huffman_tree(&huff);
+		dictionary(&huff);
+		coded_text(&huff);
+		compress_code(&huff);
+		encode_shared_memory(&huff);	
+	}
 	if (huff.flag == INFO)
 	{
+		encode_shared_memory(&huff);		
 		create_files(argc, argv, &huff);
 		detach_memory_block(huff.mem_b);
 		detach_memory_block(huff.mem_ab.cp_decoded_code);

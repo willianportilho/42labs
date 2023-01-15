@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:07:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 16:57:18 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 03:54:48 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,15 @@ void	compress_code(t_huff *huff)
 		}
 	}
 	if (j != 7) // byte não está totalmente formado. ex: 1110 (será completado por 0's) 11100000 (1 byte)
+	{
+		huff->txt.size_compress++;
 		huff->txt.compressed_code[++k] = byte;
+	}
 	huff->txt.compressed_code[++k] = '\0';
 	/*j = -1;
 	printf("\n\ncompress_code\n");
 	while (++j < huff->txt.size_compress)
 		printf("'%c'", huff->txt.compressed_code[j]);
 	printf("\n\n");*/
+	//printf("compress size = %ld", huff->txt.size_compress);
 }
