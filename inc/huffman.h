@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 07:58:46 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:27:38 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,8 +168,10 @@ void			check_args_error(char *message);
 /*Util functions (utils.c)*/
 size_t			ft_strlen(char *s);
 char			*ft_strjoin(char *s1, char *s2);
+unsigned char	*ft_str_unsigned_join(unsigned char *s1, unsigned char *s2);
 unsigned char	*ft_strjoin_free_s1(unsigned char **s1, unsigned char *s2);
 int				check_if_is_a_directory(char *path);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
+char			*ft_itoa(int n);
 
 #endif

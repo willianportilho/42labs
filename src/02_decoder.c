@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:43:40 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 07:12:46 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:07:10 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ static void	get_shared_memory_data(t_huff *huff)
 	huff->mem_b->uncompress_time = 0;
 }
 
-void	share_memory_one(t_huff *huff)
+static void	share_memory_one(t_huff *huff)
 {
 	huff->mem_a = attach_memory_block(sizeof(t_memory_go *), 0, huff);
 	huff->mem_ab.cp_compressed_code = attach_memory_block\
 	((huff->mem_a->size_compressed_code + 1) * sizeof(unsigned char), 1, huff);
 }
 
-void	share_memory_two(t_huff *huff)
+static void	share_memory_two(t_huff *huff)
 {
 	huff->mem_b = attach_memory_block(sizeof(t_memory_back *), 2, huff);
 	get_shared_memory_data(huff);

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:04:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 06:03:19 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:30:35 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ static void	restaure_file_descriptors(t_text fd)
 	close(fd.tmpout);
 }
 
-static int	open_file(char *extension, char *file_name, t_huff *huff)
+static int	open_file(unsigned char *extension, unsigned char *file_name, unsigned char *number_file, t_huff *huff)
 {
-	int		fd;
-	char	*unzipped_file_name;
+	int				fd;
+	unsigned char	*unzipped_file_name;
 
-	unzipped_file_name = ft_strjoin(file_name, extension);
-	fd = open(unzipped_file_name, O_WRONLY | O_CREAT | O_APPEND, 0644);
+	unzipped_file_name = NULL;
+	unzipped_file_name = ft_str_unsigned_join(file_name, number_file);
+	unzipped_file_name = ft_strjoin_free_s1(&unzipped_file_name, extension);
+	fd = open((char *)unzipped_file_name, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd == ERROR)
 		exit_msg_error(PERROR_MSG, "", huff);
 	free (unzipped_file_name);
@@ -49,7 +51,7 @@ void	create_files(t_huff *huff)
 	{
 		while (++i < huff->mem_b->number_of_texts)
 		{
-			fd = open_file(".42", "willian", huff);
+			fd = open_file((unsigned char *)".42", (unsigned char *)"unzipped_", (unsigned char *)ft_itoa(i), huff);
 			if (huff->mem_ab.cp_decoded_code)
 			{
 				while(huff->mem_ab.cp_decoded_code[++j])
@@ -62,7 +64,7 @@ void	create_files(t_huff *huff)
 			close(fd);
 		}
 		j = -1;
-		fd = open_file(".all", "unzipped", huff); // all means all unzipped texts in one file
+		fd = open_file((unsigned char *)".all", (unsigned char *)"unzipped", (unsigned char *)"", huff); // all means all unzipped texts in one file
 		if (huff->mem_ab.cp_decoded_code)
 		{
 			while(huff->mem_ab.cp_decoded_code[++j])
@@ -77,7 +79,7 @@ void	create_files(t_huff *huff)
 	}
 	else
 	{
-		fd = open_file(".all", "zipped", huff); // all means all zipped texts in one file
+		fd = open_file((unsigned char *)".all", (unsigned char *)"zipped", (unsigned char *)"", huff); // all means all zipped texts in one file
 		if (huff->txt.size_compress)
 		{
 			while(++j < huff->txt.size_compress)

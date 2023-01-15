@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 07:58:42 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:08:01 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	copy_freq_table(t_huff *huff)
 		huff->mem_a->ascii_table[i] = huff->freq_tab.ascii_table[i];
 }
 
-static void	encode_shared_memory(int argc, t_huff *huff)
+static void	shared_memory(int argc, t_huff *huff)
 {
 	if (huff->flag == ZIP)
 	{
@@ -111,12 +111,12 @@ int	main(int argc, char *argv[])
 		dictionary(&huff);
 		coded_text(&huff);
 		compress_code(&huff);
-		encode_shared_memory(argc, &huff);
+		shared_memory(argc, &huff);
 		create_files(&huff);
 	}
 	if (huff.flag == UNZIP)
 	{
-		encode_shared_memory(argc, &huff);		
+		shared_memory(argc, &huff);		
 		create_files(&huff);
 		free_shared_memory_two(&huff);
 	}
