@@ -59,17 +59,17 @@ Permanently erase memory
 
 ### Huffman Algorithm
 
-#### frequence table
+#### Frequence table
 To start solving the project, I needed to create a table that had the number of times a character from the ascii table appeared. We call this a "frequency table".
 To do this, just loop through the ascii table size to allow for all possible characters.
 
-#### sorted list
+#### Sorted list
 Now, the algorithm needs the frequency table to be sorted, that is, the characters that are least, at the beginning. By making a linked list, this was possible:
 
 ![ilustration image](images/image_2.jpg)
 *_Consult the [code](src/05_sorted_list.c.c) for more details_
 
-#### tree
+#### Tree
 With the frequency table ready, we can go ahead and assemble the tree.
 The rules are simple: We take the 2 characters with the lowest frequency, and we join them as children in a parent node. This node will receive the summed frequency of the two children, and will be placed in the frequency table according to their summed frequency. By repeating this process, the moment will come when the tree will be mounted:
 
