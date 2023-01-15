@@ -6,11 +6,21 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:31:44 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 06:19:41 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 07:05:28 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
+
+void	free_shared_memory(t_huff *huff)
+{
+	detach_memory_block(huff->mem_a);
+	detach_memory_block(huff->mem_ab.cp_compressed_code);
+	detach_memory_block(huff->mem_b);
+	detach_memory_block(huff->mem_ab.cp_decoded_code);
+	destroy_memory_block(0);
+	destroy_memory_block(1);
+}
 
 static void	free_tree(t_node *root)
 {

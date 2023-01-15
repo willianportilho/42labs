@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 06:00:28 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 07:04:51 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,7 @@ void			create_files(t_huff *huff);
 
 /*free_memory.c*/
 void			free_memory(t_huff *huff);
+void			free_shared_memory(t_huff *huff);
 
 /*error.c*/
 void			exit_msg_error(int flag, char *message, t_huff *huff);
