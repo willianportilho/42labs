@@ -1,3 +1,47 @@
+<h1 align="center"> 42RAR </h1>
+
+<p align="center"> A 42 project written in C language</p>
+
+<p align="center">
+  <img alt="status completed" src="https://img.shields.io/badge/STATUS-COMPLETED-green">
+  <img alt="made with c language" src="https://img.shields.io/badge/MADE%20WITH-C-blue">
+</p>
+
+---
+
+- [Introduction](#introduction)
+- [Explanation](#explanation)
+- [Example 1](#example-1-logic-function)
+- [Example 2](#example-2-call-function)
+- [Usage](#%EF%B8%8F-usage)
+
+## Introduction
+
+<p> This project had the purpose of create two programms (encoder and decoder), establishing communication via shared memory. in addition, the huffman algorithm for compressing multiple texts was required.</p>
+
+---
+
+### Explanation
+There are two issues to be discussed, let's start with shared memory.
+
+There are many ways to communicate between processes and programs. In this project, we were introduced to shared memory operations. With it, we can establish communication between two different programs, whether or not they run at the same time. For this, this type of sharing uses the location of the files as a reference, making both programs find the same block of memory associated with the chosen file. Thus, we managed to establish a connection that is useful and simple to use.
+
+
+## 🛠️ Usage
+<p> For use this aplication, follow these steps:</p>
+
+- Clone this repository:
+```
+https://github.com/42sp/42labs-selection-process-v4-willianportilho
+```
+
+## 🤖 Makefile Commands
+- `make` to create *.o objects and compile the libftprintf.a;
+- `make bonus` to include bonus functions (lists) in the libftprintf.a;
+- `make clean` to erase *.o objects;
+- `make fclean` to erase *.o objects and libftprintf.a;
+- `make re` to erase *.o objects and libftprintf.a, and recriate *.o and libftprintf.a;
+
 # Labs 4º Edição
 
 ## Desafio
