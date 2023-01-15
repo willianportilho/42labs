@@ -6,14 +6,14 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 08:08:01 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:51:09 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
 
 /* Inicializa a memória para ser possível liberá-la a qualquer momento*/
-static void init_memory(t_huff *huff)
+static void	init_memory(t_huff *huff)
 {
 	huff->txt.decompressed_code = NULL;
 	huff->txt.compressed_code = NULL;
@@ -116,7 +116,7 @@ int	main(int argc, char *argv[])
 	}
 	if (huff.flag == UNZIP)
 	{
-		shared_memory(argc, &huff);		
+		shared_memory(argc, &huff);
 		create_files(&huff);
 		free_shared_memory_two(&huff);
 	}

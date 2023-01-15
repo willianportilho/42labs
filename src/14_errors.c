@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 04:59:14 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 08:04:54 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:49:17 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	exit_msg_error(int flag, char *message, t_huff *huff)
 
 int	check_if_is_a_directory(char *path)
 {
-	DIR* directory;
+	DIR	*directory;
 
 	directory = opendir(path);
 	if (directory != NULL) // means tha it is a directory

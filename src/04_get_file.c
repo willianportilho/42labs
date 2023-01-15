@@ -6,13 +6,13 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 22:05:23 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 04:41:53 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:50:05 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
 
-static unsigned char *read_file(int fd, t_huff *huff)
+static unsigned char	*read_file(int fd, t_huff *huff)
 {
 	unsigned char	*str_file;
 	unsigned char	*buffer;
@@ -40,7 +40,7 @@ static unsigned char *read_file(int fd, t_huff *huff)
 
 void	get_file(int argc, char *argv[], t_huff *huff)
 {
-	int 			i;
+	int				i;
 	int				fd;
 	unsigned char	*text_tmp;
 

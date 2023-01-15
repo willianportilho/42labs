@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 08:27:38 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:48:28 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include <locale.h>	// utf-8
 # include <sys/types.h>	// opendir
 # include <dirent.h>	// opendir
-
 
 # define BUFFER_SIZE 1024		// used in the read function
 # define ASCII_SIZE 256
@@ -45,16 +44,16 @@
 # define ARG_ERROR_3 "invalid argument"
 
 /*includes the ordened list and the Huffman tree*/
-typedef struct  s_node
+typedef struct s_node
 {
 	int				frequency;
 	unsigned char	character;
-	struct  s_node	*right;
-	struct  s_node	*left;
-	struct  s_node	*next;
+	struct s_node	*right;
+	struct s_node	*left;
+	struct s_node	*next;
 }					t_node;
 
-typedef struct  s_list
+typedef struct s_list
 {
 	int				size_list;
 	t_node			*root; // first node in the list

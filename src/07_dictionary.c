@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:43:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 04:43:16 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:57:54 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	tree_heigth(t_node *root)
 	return (right);
 }
 
-static void    alloc_dictionary(t_dictionary *dic, t_huff *huff)
+static void	alloc_dictionary(t_dictionary *dic, t_huff *huff)
 {
 	int	i;
 
@@ -46,8 +46,8 @@ static void    alloc_dictionary(t_dictionary *dic, t_huff *huff)
 
 static void	fill_dictionary(int lengh_col, char *path, char **dictionary, t_node *root)
 {
-	char left[lengh_col];
-	char right[lengh_col];
+	char	left[lengh_col];
+	char	right[lengh_col];
 
 	if ((root->left == NULL) && (root->right == NULL))
 		strcpy(dictionary[root->character], path);
@@ -62,7 +62,7 @@ static void	fill_dictionary(int lengh_col, char *path, char **dictionary, t_node
 	}
 }
 
-void    dictionary(t_huff *huff)
+void	dictionary(t_huff *huff)
 {
 	huff->dic.lenght_col = tree_heigth(huff->list.root) + 1;
 	alloc_dictionary(&huff->dic, huff);

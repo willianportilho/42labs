@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:37:08 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 04:43:34 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:58:22 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	coded_text(t_huff *huff)
 {
-	int pos;
+	int	pos;
 	int	col;
 	int	col_2;
 	int	size_text;

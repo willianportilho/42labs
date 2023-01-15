@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:10:16 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 04:42:11 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:52:14 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	fill_table(int i, unsigned int *ascii_table, t_node **node, t_huff *
 	(*node)->frequency = ascii_table[i];
 	(*node)->right = NULL;
 	(*node)->left = NULL;
-	(*node)->next = NULL;	
+	(*node)->next = NULL;
 }
 
 void	sort_list(t_node *node, t_huff *huff)

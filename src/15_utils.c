@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 00:18:28 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 08:31:19 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:56:31 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ unsigned char	*ft_strjoin_free_s1(unsigned char **s1, unsigned char *s2)
 
 unsigned char	*ft_str_unsigned_join(unsigned char *s1, unsigned char *s2)
 {
-	int		i;
-	int		j;
+	int				i;
+	int				j;
 	unsigned char	*new_str;
 
 	i = -1;

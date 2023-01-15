@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:07:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 06:41:04 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:53:45 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	compress_code(t_huff *huff)
 		mask = 1;
 		if (huff->txt.coded_text[i] == '1')
 		{
-			mask = mask << j;	// deslocamento para a posição j do byte
-			byte = byte | mask;	// ativar o bit da posição j, de 0 para 1
+			mask = mask << j; // deslocamento para a posição j do byte
+			byte = byte | mask; // ativar o bit da posição j, de 0 para 1
 		}
 		j--;
 		if (j < 0) // 8 bits foram preenchidos (1 byte). Temos um caractere

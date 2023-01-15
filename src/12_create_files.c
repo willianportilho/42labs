@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:04:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 08:43:13 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:55:55 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ static void	create_zipped_file(t_huff *huff)
 	fd = open_file((unsigned char *)".all", (unsigned char *)"zipped", (unsigned char *)"", huff); // all means all zipped texts in one file
 	if (huff->txt.size_compress)
 	{
-		while(++i < huff->txt.size_compress)
-				dprintf(1, "%c", huff->txt.compressed_code[i]);
+		while (++i < huff->txt.size_compress)
+			dprintf(1, "%c", huff->txt.compressed_code[i]);
 	}
 	close(fd);
 }
@@ -61,7 +61,7 @@ static void	create_all_unzipped_in_one_file(t_huff *huff)
 	fd = open_file((unsigned char *)".all", (unsigned char *)"unzipped", (unsigned char *)"", huff); // all means all unzipped texts in one file
 	if (huff->mem_ab.cp_decoded_code)
 	{
-		while(huff->mem_ab.cp_decoded_code[++i])
+		while (huff->mem_ab.cp_decoded_code[++i])
 		{
 			if (huff->mem_ab.cp_decoded_code[i] == ETX) // (int)3 ETX delimitador de término de textos
 				i++;
@@ -82,14 +82,14 @@ void	create_files(t_huff *huff)
 	j = -1;
 	huff->txt.tmpin = dup(0);
 	huff->txt.tmpout = dup(1);
-	if (huff->flag == UNZIP) 
+	if (huff->flag == UNZIP)
 	{
 		while (++i < huff->mem_b->number_of_texts) // creates the files one by one
 		{
 			fd = open_file((unsigned char *)".42", (unsigned char *)"unzipped_", (unsigned char *)ft_itoa(i), huff);
 			if (huff->mem_ab.cp_decoded_code)
 			{
-				while(huff->mem_ab.cp_decoded_code[++j])
+				while (huff->mem_ab.cp_decoded_code[++j])
 				{
 					if (huff->mem_ab.cp_decoded_code[j] == ETX) // (int)3 ETX delimitador de término de textos
 						break ;
