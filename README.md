@@ -11,6 +11,8 @@
 
 - [Introduction](#introduction)
 - [Explanation](#explanation)
+- [Shared Memory](#shared-memory)
+- [Huffman Tree](#tree)
 - [Usage](#%EF%B8%8F-usage)
 
 ## Introduction
