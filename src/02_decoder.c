@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:43:40 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 07:05:22 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 07:12:46 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	share_memory_two(t_huff *huff)
 	((huff->mem_b->n_bytes_decoded_txt + 1) * sizeof(unsigned char), 3, huff);
 	memcpy(huff->mem_ab.cp_decoded_code, huff->txt.decoded_text, \
 	huff->mem_b->n_bytes_decoded_txt + 1);
-	free_shared_memory(&huff);
+	free_shared_memory_one(huff);
 }
 
 int	main(void)

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 07:04:51 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 07:18:20 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,10 +155,12 @@ void			create_files(t_huff *huff);
 
 /*free_memory.c*/
 void			free_memory(t_huff *huff);
-void			free_shared_memory(t_huff *huff);
+void			free_shared_memory_one(t_huff *huff);
+void			free_shared_memory_two(t_huff *huff);
 
 /*error.c*/
 void			exit_msg_error(int flag, char *message, t_huff *huff);
+void			check_args_error(char *message);
 
 /*Util functions (utils.c)*/
 size_t			ft_strlen(char *s);
