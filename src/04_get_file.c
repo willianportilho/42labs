@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 22:05:23 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 00:21:27 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 00:37:09 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	get_file(int argc, char *argv[], t_huff *huff)
 	int				fd;
 	unsigned char	*text_tmp;
 
-	i = 0;
+	i = 1;
 	huff->txt.text = NULL;
 	while (++i < argc)
 	{
@@ -59,5 +59,5 @@ void	get_file(int argc, char *argv[], t_huff *huff)
 		huff->txt.text = ft_strjoin_free_s1(&huff->txt.text, text_tmp); // une mais de um arquivo de texto
 		free (text_tmp);
 	}
-	//printf("%s\n", huff->txt.text); //printa na tela
+	printf("%s\n", huff->txt.text); //printa na tela
 }

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 00:24:32 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 00:38:18 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ int	main(int argc, char *argv[])
 {
 	t_huff	huff;
 
-	if (argc == 1)
+	if (argc < 3)
 	{
-		dprintf(2, "encoder: error: needed more than one argument\n");
+		dprintf(2, "encoder: error: needed more than two arguments\nexample: ./encoder -zip txt.txt ...\n");
 		exit (EXIT_FAILURE);
 	}
 	setlocale(LC_ALL, "utf8");

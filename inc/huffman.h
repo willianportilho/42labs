@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 00:13:23 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 00:36:10 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@
 # define ERROR -1				// makes reference to error (-1)
 # define TYPE_INT 4				// indicates the type of variable (int)
 # define TYPE_CHAR_P 8			// indicates the type of variable (char *)
-# define FLAG 1
+# define ZIP_TXT "-zip"
+# define INFO_TXT "-info"
 
 /*includes the ordened list and the Huffman tree*/
 typedef struct  s_node
