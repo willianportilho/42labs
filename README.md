@@ -14,7 +14,7 @@
 - [Shared Memory](#shared-memory)
 - [Huffman Algorithm](#huffman-algorithm)
 - [Usage](#%EF%B8%8F-usage)
-- [Subject](subject)
+- [Subject](#subjetc)
 
 ## Introduction
 
