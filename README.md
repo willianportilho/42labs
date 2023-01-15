@@ -90,6 +90,12 @@ After the file is compressed, to decompress it, we need to do the opposite way. 
 #### Decoded text
 Finally, we have the file in code format again (coding). Thus, we only need to access from the first index to the last of the coded file, making the path of the tree from the root, to find the characters corresponding to the code. When we find a character, we go back to the root, until we reach the end of the code.
 
+### RoadMap
+A roadmap I made, based on my code, of the path from the encoder program to the decoder program and how they share information to fully use huffman's algorithm:
+
+![ilustration image](images/image_4.png)
+<br />*_Consult the [code](src/01_encoder.c) for more details_
+
 ## 🛠️ Usage
 <p> For use this aplication, follow these steps:</p>
 
