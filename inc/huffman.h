@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 00:36:10 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 01:03:09 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@
 # define ERROR -1				// makes reference to error (-1)
 # define TYPE_INT 4				// indicates the type of variable (int)
 # define TYPE_CHAR_P 8			// indicates the type of variable (char *)
-# define ZIP_TXT "-zip"
-# define INFO_TXT "-info"
+# define ZIP 1
+# define INFO 2
 
 /*includes the ordened list and the Huffman tree*/
 typedef struct  s_node
@@ -104,6 +104,7 @@ typedef struct s_memory_back
 /*Estrutura principal*/
 typedef struct s_huff
 {
+	int				flag;
 	t_file			file;
 	t_text			txt;
 	t_dictionary	dic;
@@ -156,5 +157,6 @@ size_t			ft_strlen(char *s);
 char			*ft_strjoin(char *s1, char *s2);
 unsigned char	*ft_strjoin_free_s1(unsigned char **s1, unsigned char *s2);
 int				check_if_is_a_directory(char *path);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

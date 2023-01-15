@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 00:38:18 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 01:03:53 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ static void	encode_shared_memory(t_huff *huff)
 
 	huff->txt.cp_compressed_code = attach_memory_block((huff->mem_a->size_compressed_code + 1) * sizeof(unsigned char), 1, huff);
 	memcpy(huff->txt.cp_compressed_code, huff->txt.compressed_code, (huff->mem_a->size_compressed_code + 1) * sizeof(unsigned char));
+	
 	huff->mem_b = attach_memory_block(sizeof(t_memory_back *), 2, huff);
 	printf("compress bytes = %d\n", huff->mem_b->n_bytes_compressed_code);
 	printf(" decoded bytes = %d\n", huff->mem_b->n_bytes_decoded_txt);
@@ -79,6 +80,15 @@ int	main(int argc, char *argv[])
 	if (argc < 3)
 	{
 		dprintf(2, "encoder: error: needed more than two arguments\nexample: ./encoder -zip txt.txt ...\n");
+		exit (EXIT_FAILURE);
+	}
+	if (!ft_strncmp(argv[1], "-zip", 5))
+		huff.flag = ZIP;
+	else if (!ft_strncmp(argv[1], "-info", 6))
+		huff.flag = INFO;
+	else
+	{
+		dprintf(2, "encoder: error: needed the a flag\nexample: ./encoder -zip\n");
 		exit (EXIT_FAILURE);
 	}
 	setlocale(LC_ALL, "utf8");

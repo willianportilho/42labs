@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:04:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 00:21:51 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 00:45:24 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	create_files(int argc, char *argv[], t_huff *huff)
 	int	j;
 	int	new_file;
 
-	i = 0;
+	i = 1;
 	j = -1;
 	huff->txt.tmpin = dup(0);
 	huff->txt.tmpout = dup(1);
-	while ((++i < argc) && (argc > 2))
+	while (++i < argc)
 	{
 		huff->file.name_new_file = ft_strjoin(argv[i], ".dec"); // dec significa descompactado
 		new_file = open(huff->file.name_new_file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
