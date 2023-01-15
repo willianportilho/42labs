@@ -6,30 +6,35 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:07:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 04:43:50 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 06:41:04 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
+
+static void	alloc_compress_code(t_huff *huff)
+{
+	int				size;
+
+	size = ft_strlen(huff->txt.coded_text) + 1; // A cada 8 bits, um char de alocação. *1 a mais para cálculos quebrados 
+	huff->txt.compressed_code = calloc((size + 1), sizeof(char));
+	if (huff->txt.compressed_code == NULL)
+		exit_msg_error(PERROR_MSG, "", huff);
+}
 
 void	compress_code(t_huff *huff)
 {
 	int				i;
 	int				j;
 	int				k;
-	int				size;
 	unsigned char	mask;
 	unsigned char	byte;
 
 	i = -1;
 	j = 7;
 	k = -1;
-	byte = 0;
 	huff->txt.size_compress = 0;
-	size = ft_strlen(huff->txt.coded_text) + 1; // A cada 8 bits, um char de alocação. *1 a mais para cálculos quebrados 
-	huff->txt.compressed_code = calloc((size + 1), sizeof(char));
-	if (huff->txt.compressed_code == NULL)
-		exit_msg_error(PERROR_MSG, "", huff);
+	alloc_compress_code(huff);
 	while (huff->txt.coded_text[++i])
 	{
 		mask = 1;
