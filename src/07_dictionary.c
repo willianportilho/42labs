@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   06_dictionary.c                                    :+:      :+:    :+:   */
+/*   07_dictionary.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:43:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 10:34:23 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 20:21:39 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	fill_dictionary(int lengh_col, char *path, char **dictionary, t_node
 	}
 }
 
-void	print_dictionary(unsigned int *ascii_table, char **dictionary)
+/*static void	print_dictionary(unsigned int *ascii_table, char **dictionary)
 {
 	int	i;
 
@@ -73,12 +73,12 @@ void	print_dictionary(unsigned int *ascii_table, char **dictionary)
 		if (ascii_table[i] > 0)
 				printf("%3d: %6s: %c\n", i, dictionary[i], i);
 	}
-}
+}*/
 
 void    dictionary(t_huff *huff)
 {
 	huff->dic.lenght_col = tree_heigth(huff->list.root) + 1;
 	alloc_dictionary(&huff->dic, huff);
 	fill_dictionary(huff->dic.lenght_col, "", huff->dic.dictionary, huff->list.root);
-	//print_dictionary(huff->freq_tab.ascii_table, huff->dic.dictionary);
+	//print_dictionary(huff->mem->ascii_table, huff->dic.dictionary);
 }

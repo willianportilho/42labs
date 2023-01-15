@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   10_decoded_text.c                                  :+:      :+:    :+:   */
+/*   11_decoded_text.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:22:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 10:34:49 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:11:33 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	decoded_text(t_huff *huff)
 		{
 			if (aux->frequency == 0) // tratamento dos bits 0 restantes
 			{
-				//printf("\ndecoded_text = %s\n", huff->txt.decoded_text);
+				printf("\ndecoded_text = %s\n", huff->txt.decoded_text);
 				huff->txt.decoded_text[pos] = '\0';
 				return ;
 			}	
@@ -46,6 +46,5 @@ void	decoded_text(t_huff *huff)
 		}
 	}
 	huff->txt.decoded_text[pos] = '\0';
-	//printf("\ndelimiter2 = %ld\n", huff->file.delimiter[1]);
-	//printf("\ndecoded_text\n%s", huff->txt.decoded_text);
+	printf("\ndecoded_text\n%s", huff->txt.decoded_text);
 }

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 17:42:46 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:06:09 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_text
 	unsigned char	*decoded_text;
 	char			*coded_text;
 	unsigned char	*compressed_code;
+	unsigned char	*cp_compressed_code;
 	char			*decompressed_code;
 	int				tmpin;
 	int				tmpout;
@@ -84,11 +85,16 @@ typedef struct s_file
 	char			*name_new_file;
 }					t_file;
 
-typedef struct s_memory
+typedef struct s_memory_go
 {
 	unsigned int	ascii_table[256];
 	long			size_compressed_code;
-}					t_memory;
+}					t_memory_go;
+
+typedef struct s_memory_back
+{
+	int	size_of_bytes_decoded_txt;
+}					t_memory_back;
 
 /*Estrutura principal*/
 typedef struct s_huff
@@ -98,10 +104,8 @@ typedef struct s_huff
 	t_dictionary	dic;
 	t_freq_tab		freq_tab;
 	t_list			list;
-	t_memory		*mem;
+	t_memory_go		*mem;
 }					t_huff;
-
-void	encode_shared_memory(t_huff *huff);
 
 /*03_shared_memory.c*/
 void			*attach_memory_block(int size_block, int proj_id, t_huff *huff);
@@ -112,7 +116,7 @@ void			get_file(int argc, char *argv[], t_huff *huff);
 
 /*sorted_list.c*/
 void			sort_list(t_node *node, t_huff *huff);
-void			sorted_list(t_huff *huff);
+void			sorted_list(unsigned int *ascii_table, t_huff *huff);
 
 /*huffman_tree.c*/
 void			huffman_tree(t_huff *huff);

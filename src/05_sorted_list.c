@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_sorted_list.c                                   :+:      :+:    :+:   */
+/*   05_sorted_list.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:10:16 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/14 10:33:40 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/14 20:18:50 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void	init_list(t_huff *huff)
 	huff->list.size_list = 0;
 }
 
-static void	fill_table(int i, t_node **node, t_huff *huff)
+static void	fill_table(int i, unsigned int *ascii_table, t_node **node, t_huff *huff)
 {
 	*node = malloc(sizeof(t_node));
 	if (!*node)
 		exit_msg_error(PERROR_MSG, "", huff);
 	(*node)->character = i;
-	(*node)->frequency = huff->freq_tab.ascii_table[i];
+	(*node)->frequency = ascii_table[i];
 	(*node)->right = NULL;
 	(*node)->left = NULL;
 	(*node)->next = NULL;	
@@ -52,7 +52,7 @@ void	sort_list(t_node *node, t_huff *huff)
 	huff->list.size_list++;
 }
 
-void	sorted_list(t_huff *huff)
+void	sorted_list(unsigned int *ascii_table, t_huff *huff)
 {
 	int		i;
 	t_node	*node;
@@ -61,17 +61,17 @@ void	sorted_list(t_huff *huff)
 	init_list(huff);
 	while (++i < ASCII_SIZE)
 	{
-		if (huff->freq_tab.ascii_table[i] > 0)
+		if (ascii_table[i] > 0)
 		{
-			fill_table(i, &node, huff);
+			fill_table(i, ascii_table, &node, huff);
 			sort_list(node, huff);
 		}
 	}
 	t_node	*aux = huff->list.root;
-	//printf("Tabela de frequencia\n");
+	printf("Tabela de frequencia\n");
 	while (aux)
 	{
-		//printf("character: %c / frequence: %d\n", aux->character, aux->frequency); // print tests
+		printf("character: %c / frequence: %d\n", aux->character, aux->frequency); // print tests
 		aux = aux->next;
 	}
 }
