@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 07:18:20 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 07:58:46 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@
 # define TYPE_CHAR_P 8			// indicates the type of variable (char *)
 # define ZIP 1
 # define UNZIP 2
+# define ARG_ERROR "needed more than two arguments"
+# define ARG_ERROR_2 "-unzip flag must have no arguments"
+# define ARG_ERROR_3 "invalid argument"
 
 /*includes the ordened list and the Huffman tree*/
 typedef struct  s_node

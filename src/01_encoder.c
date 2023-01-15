@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 07:55:36 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 07:58:42 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,17 @@ static void	encode_shared_memory(int argc, t_huff *huff)
 static void	check_args(int argc, char *argv[], t_huff *huff)
 {
 	if (argc < 2)
-		check_args_error("needed more than two arguments");
+		check_args_error(ARG_ERROR);
 	else if (!ft_strncmp(argv[1], "-unzip", 7))
 	{
 		if (argc > 2)
-			check_args_error("-unzip flag must have no arguments");
+			check_args_error(ARG_ERROR_2);
 		huff->flag = UNZIP;
 	}
 	else if (!ft_strncmp(argv[1], "-zip", 5))
 		huff->flag = ZIP;
 	else
-		check_args_error("invalid argument");
+		check_args_error(ARG_ERROR_3);
 }
 
 int	main(int argc, char *argv[])
