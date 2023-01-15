@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 22:05:23 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 08:50:05 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:22:18 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ void	get_file(int argc, char *argv[], t_huff *huff)
 	while (++i < argc)
 	{
 		if (i > ONE_FILE)
-			huff->txt.text = ft_strjoin_free_s1(&huff->txt.text, (unsigned char *)ETX_DELIMITER); // adiciona um separador (int 1) a cada arquivo de texto
+			huff->txt.text = ft_strjoin_free_s1(&huff->txt.text, (unsigned char *)ETX_DELIMITER); // adds a separator (int 1) to each text file
 		if (check_if_is_a_directory(argv[i]) == TRUE)
 			exit_msg_error(SET_MSG, "Is a directory", huff);
 		fd = open(argv[i], O_RDONLY);
 		if (fd == ERROR)
 			exit_msg_error(PERROR_MSG, "", huff);
 		text_tmp = read_file(fd, huff);
-		huff->txt.text = ft_strjoin_free_s1(&huff->txt.text, text_tmp); // une mais de um arquivo de texto
+		huff->txt.text = ft_strjoin_free_s1(&huff->txt.text, text_tmp); // merge more than one text file
 		free (text_tmp);
 	}
 }

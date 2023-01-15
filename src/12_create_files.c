@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:04:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 10:16:31 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:26:27 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	create_all_unzipped_in_one_file(t_huff *huff)
 	{
 		while (huff->mem_ab.cp_decoded_code[++i])
 		{
-			if (huff->mem_ab.cp_decoded_code[i] == ETX) // (int)3 ETX delimitador de término de textos
+			if (huff->mem_ab.cp_decoded_code[i] == ETX) // (int)3 ETX text ending delimiter
 				i++;
 			if (huff->mem_ab.cp_decoded_code[i])
 				dprintf(1, "%c", huff->mem_ab.cp_decoded_code[i]);
@@ -91,7 +91,7 @@ void	create_files(t_huff *huff)
 			{
 				while (huff->mem_ab.cp_decoded_code[++j])
 				{
-					if (huff->mem_ab.cp_decoded_code[j] == ETX) // (int)3 ETX delimitador de término de textos
+					if (huff->mem_ab.cp_decoded_code[j] == ETX) // (int)3 ETX text ending delimiter
 						break ;
 					dprintf(1, "%c", huff->mem_ab.cp_decoded_code[j]);
 				}

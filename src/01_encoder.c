@@ -6,13 +6,13 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 10:17:49 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:21:16 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
 
-/* Inicializa a memória para ser possível liberá-la a qualquer momento*/
+/* Initialize memory. You can release it at any time*/
 static void	init_memory(t_huff *huff)
 {
 	huff->txt.decompressed_code = NULL;
@@ -30,10 +30,10 @@ static void	init_memory(t_huff *huff)
 }
 
 /*
-	Inicializa uma tabela de tamanho 255, que representa cada símbolo da tabela
-	ASCII. Cada index é inicializado com o valor 0. Cada vez que uma letra
-	correspondente a um index for encontrada, o index correspondente será
-	incrementado, gerando assim os dados de frequencia de cada símbolo. 
+	Initializes a table of size 255, which represents each symbol in the table
+ASCII. Each index is initialized with the value 0. Each time that a letter
+corresponding to an index is founded, the corresponding index will be
+incremented, generating the frequency data of each symbol. 
 */
 static void	frequence_table(t_huff *huff)
 {
@@ -64,7 +64,7 @@ static void	shared_memory(int argc, t_huff *huff)
 	if (huff->flag == ZIP)
 	{
 		huff->mem_a = attach_memory_block(sizeof(t_memory_go *), 0, huff);
-		huff->mem_a->size_compressed_code = huff->txt.size_compress; // tamanho da alocação do texto comprimido
+		huff->mem_a->size_compressed_code = huff->txt.size_compress; // Compressed text allocation size
 		huff->mem_a->number_of_texts = argc - 2;
 		copy_freq_table(huff);
 		huff->mem_ab.cp_compressed_code = attach_memory_block((huff->mem_a->size_compressed_code + 1) * sizeof(unsigned char), 1, huff);
@@ -95,7 +95,7 @@ static void	check_args(int argc, char *argv[], t_huff *huff)
 		check_args_error(ARG_ERROR_3);
 }
 
-satatic void	print_info(t_huff *huff)
+static void	print_info(t_huff *huff)
 {
 	huff->mem_b->uncompress_inicial_time = current_time() - huff->mem_b->uncompress_inicial_time;
 	dprintf(1, "----------------------------------------\n");

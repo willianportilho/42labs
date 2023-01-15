@@ -6,13 +6,13 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:43:40 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 10:07:25 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:21:34 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/huffman.h"
 
-/* Inicializa a memória para ser possível liberá-la a qualquer momento*/
+/* Initialize memory. You can release it at any time*/
 static void	init_memory(t_huff *huff)
 {
 	huff->txt.decompressed_code = NULL;

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:22:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 06:33:51 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:25:44 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	decoded_text(t_huff *huff)
 			aux = aux->right;
 		if ((aux->left == NULL) && (aux->right == NULL))
 		{
-			if (aux->frequency == 0) // tratamento dos bits 0 restantes
+			if (aux->frequency == 0) // treatment of remaining 0 bits
 			{
 				huff->txt.decoded_text[++pos_2] = '\0';
 				return ;
 			}	
 			huff->txt.decoded_text[++pos_2] = aux->character;
-			aux->frequency--; // tratamento para bits restantes no último byte do código descompactado
+			aux->frequency--; // treatment for leftover bits in last byte of uncompressed code
 			aux = huff->list.root;
 		}
 	}

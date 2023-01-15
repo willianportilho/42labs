@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:07:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 08:53:45 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:24:58 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	alloc_compress_code(t_huff *huff)
 {
 	int				size;
 
-	size = ft_strlen(huff->txt.coded_text) + 1; // A cada 8 bits, um char de alocação. *1 a mais para cálculos quebrados 
+	size = ft_strlen(huff->txt.coded_text) + 1; // Every 8 bits, an allocation char. *1 more for broken calculations
 	huff->txt.compressed_code = calloc((size + 1), sizeof(char));
 	if (huff->txt.compressed_code == NULL)
 		exit_msg_error(PERROR_MSG, "", huff);
@@ -40,11 +40,11 @@ void	compress_code(t_huff *huff)
 		mask = 1;
 		if (huff->txt.coded_text[i] == '1')
 		{
-			mask = mask << j; // deslocamento para a posição j do byte
-			byte = byte | mask; // ativar o bit da posição j, de 0 para 1
+			mask = mask << j; // offset to byte position j
+			byte = byte | mask; // turn j position bit from 0 to 1
 		}
 		j--;
-		if (j < 0) // 8 bits foram preenchidos (1 byte). Temos um caractere
+		if (j < 0) // 8 bits were placed (1 byte). we have a character
 		{
 			++k;
 			huff->txt.size_compress++;
@@ -53,7 +53,7 @@ void	compress_code(t_huff *huff)
 			j = 7;
 		}
 	}
-	if (j != 7) // byte não está totalmente formado. ex: 1110 (será completado por 0's) 11100000 (1 byte)
+	if (j != 7) // byte is not fully formed. ex: 1110 (will be completed by 0's) 11100000 (1 byte)
 	{
 		huff->txt.size_compress++;
 		huff->txt.compressed_code[++k] = byte;
