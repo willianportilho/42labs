@@ -15,6 +15,7 @@
 - [Huffman Algorithm](#huffman-algorithm)
 - [RoadMap](#roadmap)
 - [Usage](#%EF%B8%8F-usage)
+- [Reference](#reference)
 - [Subject](#subjetc)
 
 ## Introduction
@@ -114,18 +115,37 @@ https://github.com/42sp/42labs-selection-process-v4-willianportilho
 ### How To Use The Programm
 
 _First_: if you ever want to zip one or more text files:
-<br />``./encoder -zip your_text_to_zip your_another_text_to_zip ...``<br />
 A zipped file (.zip) is generated
-
-_Second_: to unzip your texts:<br />
-``./decode``<br /> without flags or arguments
-
+``` c
+./encoder -zip your_text_to_zip your_another_text_to_zip ...
+```
+_Second_: to unzip your texts:
+without flags or arguments
+``` c
+./decode
+```
 _Third_: to get the files separated (.42 extension), and one file with all of them togheter (.all extension):<br />
-``./encoder -unzip``<br />
+``` c
+./encoder -unzip
+```
+*you can use this command if a memory error occur
+``` c
+ipcrm -a
+```
+_ENJOY!_
 
+---
+### Reference
+[Algoritmo de Huffman](https://www.youtube.com/playlist?list=PLqJK4Oyr5WShtxF1Ch3Vq4b1Dzzb-WxbP)<br/>
+[Alg. Huffman - Artigo](https://www.ime.usp.br/~pf/estruturas-de-dados/aulas/huffman.html)<br/>
+[How Algorithms Like Huffman Works](https://www.ime.usp.br/~pf/analise_de_algoritmos/aulas/guloso.html)<br/>
+[IPC](https://www.geeksforgeeks.org/ipc-shared-memory/)<br/>
+[Programmim IPC](https://dextutor.com/program-for-ipc-using-shared-memory/)<br/>
+[Shared Memory - Jacob](https://www.youtube.com/watch?v=WgVSq-sgHOc)<br/>
+[Shared Memory - Tutorial](https://www.tutorialspoint.com/inter_process_communication/inter_process_communication_shared_memory.htm)<br/>
+[Recursion](https://www.youtube.com/playlist?list=PL8iN9FQ7_jt689UWkf4wnWSHT_puJohh5)<br/>
+[Recursion - Binary Tree](https://www.youtube.com/watch?v=z7XwVVYQRAA&list=PL8iN9FQ7_jt7LwqmdiyhVVu2J4jQQ9uRW&index=8)<br/>
 
-*you can use ``ipcrm -a`` command if a memory error occur
-ENJOY
 
 ---
 
