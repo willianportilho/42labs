@@ -22,6 +22,7 @@
 ---
 
 ### Explanation
+We aimed to use shared memory in conjunction with the huffman algorithm. To merge this, we did the compression of multiple texts in the encoder program and, through the shared memory, we sent this compressed file. In the decoder, the file goes through a process to be decompressed and sent back to the encoder. In the end, the encoder creates files with the uncompressed text, a file with all the texts compressed, and a file with all the texts uncompressed, and finally, it displays execution information.
 There are two issues to be discussed, let's start with shared memory.
 
 #### Shared memory
@@ -51,7 +52,9 @@ Issues a warning that the memory has already been used by the current program. T
 #### shmclt
 Permanently erase memory
 
-#### Huffman Algorithm
+### Huffman Algorithm
+
+
 
 ## 🛠️ Usage
 <p> For use this aplication, follow these steps:</p>
