@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:17:28 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 03:07:25 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 04:42:43 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,6 @@ static t_node	*detach_a_node(t_huff *huff)
 	detached_node->next = NULL;
 	huff->list.size_list--;
 	return (detached_node);
-}
-
-void	print_tree(t_node *root, int size_list)
-{
-	if ((root->left == NULL) && (root->right == NULL))
-		printf("leaf = %c | heigth = %d\n", root->character, size_list);
-	else
-	{
-		print_tree(root->left, size_list + 1);
-		print_tree(root->right, size_list + 1);
-	}
 }
 
 void	huffman_tree(t_huff *huff)
@@ -58,6 +47,4 @@ void	huffman_tree(t_huff *huff)
 		parent->next = NULL; // here we detaches the parent node
 		sort_list(parent, huff); // and here, we reinsert in sort mode
 	}
-	//printf("\nÁrvore montada\n");
-	//print_tree(huff->list.root, 0);
 }

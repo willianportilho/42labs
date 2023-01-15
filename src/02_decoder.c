@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:43:40 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 03:29:43 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 04:41:23 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,28 +58,3 @@ int	main(void)
 	free_memory(&huff);
 	return (0);
 }
-	/*printf("new: %ld\n", huff.mem_a->size_compressed_code);
-	i = -1;
-	while (++i < ASCII_SIZE)
-	{
-		if (huff.mem_a->ascii_table[i] > 0)
-			printf("mem: %d %d\n", i, huff.mem_a->ascii_table[i]); //print tests
-	}*/
-/*static void	print_dictionary(unsigned int *ascii_table, char **dictionary)
-{
-	int	i;
-
-	i = -1;
-	printf("\nDicionário\n");
-	while (++i < ASCII_SIZE)
-	{
-		if (ascii_table[i] > 0)
-				printf("ascii = %3d | código = %6s | letra = %c\n", i, dictionary[i], i);
-	}
-}*/
-	//print_dictionary(huff.mem_a->ascii_table, huff.dic.dictionary);
-
-	/*printf("\n\ndecoder: compress_code\n");
-	while (++j < huff.mem_a->size_compressed_code)
-		printf("'%c'", huff.txt->cp_compressed_code[j]);
-	printf("\n");*/

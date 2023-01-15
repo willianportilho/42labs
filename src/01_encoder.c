@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 04:03:06 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 04:40:57 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,7 @@ static void	encode_shared_memory(t_huff *huff)
 	else
 	{
 		huff->mem_b = attach_memory_block(sizeof(t_memory_back *), 2, huff);
-		
 		huff->mem_ab.cp_decoded_code = attach_memory_block((huff->mem_b->n_bytes_decoded_txt + 1) * sizeof(unsigned char), 300, huff);
-		printf("result encoder= %s\n", huff->mem_ab.cp_decoded_code);
 	}
 }
 
@@ -121,7 +119,7 @@ int	main(int argc, char *argv[])
 		dictionary(&huff);
 		coded_text(&huff);
 		compress_code(&huff);
-		encode_shared_memory(&huff);	
+		encode_shared_memory(&huff);
 	}
 	if (huff.flag == INFO)
 	{
@@ -135,25 +133,3 @@ int	main(int argc, char *argv[])
 	free_memory(&huff);
 	return (0);
 }
-
-	/*int j = -1;
-	printf("\n\nencoder: compress_code\n");
-	while (++j < huff->mem_a->size_compressed_code)
-		printf("'%c'", cp_compressed_code[j]);
-	printf("\n");*/
-
-	//printf("ori: %ld\n", huff->txt.size_compress);
-	//printf("new: %ld\n", huff->mem_a->size_compressed_code);
-	/*i = -1;
-	while (++i < ASCII_SIZE)
-	{
-		if (huff->mem_a->ascii_table[i] > 0)
-			printf("mem: %d %d\n", i, huff->mem_a->ascii_table[i]); //print tests
-	}*/
-
-	/*i = -1;
-	while (++i < ASCII_SIZE)
-	{
-		if (huff->freq_tab.ascii_table[i] > 0)
-			printf("ori: %d %d\n", i, huff->freq_tab.ascii_table[i]); //print tests
-	}*/

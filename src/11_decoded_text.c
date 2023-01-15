@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:22:19 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 03:57:33 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 04:46:44 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	decoded_text(t_huff *huff)
 		{
 			if (aux->frequency == 0) // tratamento dos bits 0 restantes
 			{
-				printf("decoded_text = %s\n", huff->txt.decoded_text);
 				huff->txt.decoded_text[++pos_2] = '\0';
 				return ;
 			}	
@@ -46,5 +45,4 @@ void	decoded_text(t_huff *huff)
 		}
 	}
 	huff->txt.decoded_text[++pos_2] = '\0';
-	printf("decoded_text\n%s", huff->txt.decoded_text);
 }
