@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 01:45:44 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 05:26:19 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_file
 
 typedef struct s_memory_go
 {
+	int				number_of_texts;
 	unsigned int	ascii_table[256];
 	long			size_compressed_code;
 }					t_memory_go;
@@ -95,6 +96,7 @@ typedef struct s_memory_go
 typedef struct s_memory_back
 {
 	int				uncompress_time;
+	int				number_of_texts;
 	int				n_bytes_compressed_code;
 	int				n_bytes_decoded_txt;
 }					t_memory_back;
@@ -149,7 +151,7 @@ void			compress_code(t_huff *huff);
 void			decompress_code(t_huff *huff);
 
 /*create_files.c*/
-void			create_files(int argc, char *argv[], t_huff *huff);
+void			create_files(t_huff *huff);
 
 /*free_memory.c*/
 void			free_memory(t_huff *huff);

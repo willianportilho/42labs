@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:43:40 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 04:41:23 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 05:51:46 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void init_memory(t_huff *huff)
 
 static void	get_info(t_huff *huff)
 {
+	huff->mem_b->number_of_texts = huff->mem_a->number_of_texts;
 	huff->mem_b->n_bytes_compressed_code = huff->mem_a->size_compressed_code;
 	huff->mem_b->n_bytes_decoded_txt = ft_strlen((char *)huff->txt.decoded_text);
 	huff->mem_b->uncompress_time = 0;
@@ -47,7 +48,7 @@ int	main(void)
 	decoded_text(&huff);
 	huff.mem_b = attach_memory_block(sizeof(t_memory_back *), 2, &huff);
 	get_info(&huff);
-	huff.mem_ab.cp_decoded_code = attach_memory_block((huff.mem_b->n_bytes_decoded_txt + 1) * sizeof(unsigned char), 300, &huff);
+	huff.mem_ab.cp_decoded_code = attach_memory_block((huff.mem_b->n_bytes_decoded_txt + 1) * sizeof(unsigned char), 3, &huff);
 	memcpy(huff.mem_ab.cp_decoded_code, huff.txt.decoded_text, huff.mem_b->n_bytes_decoded_txt + 1);
 	detach_memory_block(huff.mem_a);
 	detach_memory_block(huff.mem_ab.cp_compressed_code);

@@ -7,3 +7,5 @@ huffman
 nfs*
 decoder
 encoder
+*.42
+*.all
