@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:31:44 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 01:50:04 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 06:19:41 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ static void	free_vector(char **vector)
 	if (vector == NULL)
 		return ;
 	while (vector[++i])
-	{
-		free(vector[i]);	
-	}
+		free(vector[i]);
 	free(vector);
 }
 
