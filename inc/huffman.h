@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 05:26:19 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 06:00:28 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # define TYPE_INT 4				// indicates the type of variable (int)
 # define TYPE_CHAR_P 8			// indicates the type of variable (char *)
 # define ZIP 1
-# define INFO 2
+# define UNZIP 2
 
 /*includes the ordened list and the Huffman tree*/
 typedef struct  s_node

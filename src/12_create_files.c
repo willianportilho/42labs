@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:04:35 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 05:56:20 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 06:03:19 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	create_files(t_huff *huff)
 	j = -1;
 	huff->txt.tmpin = dup(0);
 	huff->txt.tmpout = dup(1);
-	if (huff->flag == INFO)
+	if (huff->flag == UNZIP) 
 	{
 		while (++i < huff->mem_b->number_of_texts)
 		{

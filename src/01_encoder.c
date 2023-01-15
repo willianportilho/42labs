@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:39:21 by wportilh          #+#    #+#             */
-/*   Updated: 2023/01/15 05:54:23 by wportilh         ###   ########.fr       */
+/*   Updated: 2023/01/15 06:01:52 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,20 +86,20 @@ static void	check_args(int argc, char *argv[], t_huff *huff)
 		dprintf(2, "encoder: error: needed more than two arguments\nexample: ./encoder -zip txt.txt ...\n");
 		exit (EXIT_FAILURE);
 	}
-	else if (!ft_strncmp(argv[1], "-info", 6))
+	else if (!ft_strncmp(argv[1], "-unzip", 7))
 	{
 		if (argc > 2)
 		{
-			dprintf(2, "encoder: error: -info flag has no arguments\n");
+			dprintf(2, "encoder: error: -unzip flag has no arguments\n");
 			exit (EXIT_FAILURE);
 		}
-		huff->flag = INFO;
+		huff->flag = UNZIP;
 	}
 	else if (!ft_strncmp(argv[1], "-zip", 5))
 		huff->flag = ZIP;
 	else
 	{
-		dprintf(2, "encoder: error: needed the a flag\nexample: ./encoder -zip or ./encoder -info\n");
+		dprintf(2, "encoder: error: needed the a flag\nexample: ./encoder -zip or ./encoder -unzip\n");
 		exit (EXIT_FAILURE);
 	}
 }
@@ -123,7 +123,7 @@ int	main(int argc, char *argv[])
 		encode_shared_memory(argc, &huff);
 		create_files(&huff);
 	}
-	if (huff.flag == INFO)
+	if (huff.flag == UNZIP)
 	{
 		encode_shared_memory(argc, &huff);		
 		create_files(&huff);
