@@ -72,7 +72,7 @@ Now, the algorithm needs the frequency table to be sorted, that is, the characte
 With the frequency table ready, we can go ahead and assemble the tree.
 The rules are simple: We take the 2 characters with the lowest frequency, and we join them as children in a parent node. This node will receive the summed frequency of the two children, and will be placed in the frequency table according to their summed frequency. By repeating this process, the moment will come when the tree will be mounted:
 
-![ilustration image](images/image_3.png)
+![ilustration image](images/image_5.jpg)
 <br />*_Consult the [code](src/06_huffman_tree.c) for more details_
 
 #### Dictionary
